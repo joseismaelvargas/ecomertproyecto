@@ -1,0 +1,69 @@
+.imgswiper{
+    background-image: url("https://arcencohogareasy.vtexassets.com/assets/vtex.file-manager-graphql/images/c2ec5616-782e-48f5-b695-0d92b8bfd582___7583623cd2d4d3e0b8e696aa0bed42a3.jpg");
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    height: 370px;
+    background-attachment: fixed; 
+     overflow: hidden
+}
+/* .carrusel{
+    margin: 100px;
+} */
+.swiper-button-prev,
+.swiper-button-next {
+  
+  color: #000000; 
+  border-radius: 100%; 
+ 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+}
+
+.imgswiper2{
+    
+        background-image: url("https://arcencohogareasy.vtexassets.com/assets/vtex.file-manager-graphql/images/7161f8b0-41be-42db-a047-7a34f32c92c9___c37befe7de5570398dc2e26419f2e466.jpg");
+        background-size: cover;
+        background-position: center; 
+        background-repeat: no-repeat; 
+        height: 370px;
+        background-attachment: fixed; 
+         overflow: hidden
+   
+}
+.imgswiper3{
+    
+    background-image: url("https://arcencohogareasy.vtexassets.com/assets/vtex.file-manager-graphql/images/0ef3d5a8-b897-4f30-9439-5b110b83c9a7___b2d5224bad6c181f9c3f2d163fa287ab.jpg");
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    height: 370px;
+    background-attachment: fixed; 
+     overflow: hidden
+
+}
+@media only screen and (max-width: 700px) {
+    .swiper-slide{
+     flex-wrap: wrap;
+    }
+    .img-carrusel{
+     width: 100%;
+     height: 350px;
+    }
+    .saira-condensed-thin{
+     font-size: 47px;
+     margin: 50px;
+    }
+ }
+ @media only screen and (max-width: 500px) {
+   
+   .imgswiper,
+   .imgswiper2,
+   .imgswiper3{
+    height: 250px;
+    width: 100vh;
+    
+   }
+}

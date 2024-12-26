@@ -1,19 +1,54 @@
-// import { useModal } from './Componentes/useModal'
-import { BiAccessibility } from "react-icons/bi";
-
+import "../App.css"
+import { BiUser } from "react-icons/bi";
+import { CiSearch } from "react-icons/ci";
+import { FaCartShopping } from "react-icons/fa6";
 export const Nav=()=>{
  
     return(
-        <nav className='nav'>  
-     
-        <img src="https://veaargentina.vtexassets.com/assets/vtex.file-manager-graphql/images/90afb408-ae59-49dc-93d3-024dfad89cb3___512e889dc7a3dba0a62a4b47dffde6d1.png" alt="" width="100px" />
-        <div className='iconcuenta'>
-                <p>Mi cuenta</p>
-                <BiAccessibility />
-        </div>
-  
+        <>
+     <nav className="navbar navbar-expand-lg bg-body-tertiary">
+  <div className="container-fluid">
+    <img
+      src="https://ecomert.md/wp-content/uploads/2024/02/share.jpg"
+      alt="ecomert"
+      className="logoeocomert"
+    />
+    <button
+      className="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span className="navbar-toggler-icon"></span>
+    </button>
+    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+        <li className="nav-item">
+          <form className="d-flex" role="search">
+            <input
+              className="inputnav form-control me-2"
+              type="search"
+              placeholder="Buscar Producto"
+              aria-label="Search"
+            />
+            <button className="lupa" type="submit">
+              <CiSearch />
+            </button>
+          </form>
+        </li>
+        <div className="incocuenta">
+        <BiUser  className="icono"/>
+         <FaCartShopping  className="icono"/>
+         </div>
         
-        
-       </nav>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+</>
     )
 }
