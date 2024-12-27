@@ -10,6 +10,20 @@
     border-radius: 10px;
 
 }
+.swiper-button-prev,
+.swiper-button-next {
+  width: 30px; /* Ajusta el ancho del botón */
+  height: 30px; /* Ajusta la altura del botón */
+  
+  border-radius: 50%; /* Hace que el botón sea circular */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s; /* Añade una transición suave */
+}
+
+
+
 .target-info{
     width: auto;
     height: 230px;
@@ -80,3 +94,16 @@
     box-shadow: 0px 0px 4px 4px rgb(161, 161, 161);
     border: solid 2px gray;
 }
+@media only screen and (max-width: 500px) {
+   
+    .target{
+        width: auto;
+        margin: 0px 0px;
+    }
+    .swiper-button-prev,
+    .swiper-button-next {
+   display: none;
+}
+
+
+ }

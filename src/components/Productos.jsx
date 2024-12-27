@@ -100,11 +100,31 @@ export const Productos=()=>{
         <section className="container-fluid">
             <h2 className="nunito-uniquifier-title">Productos Recomendados</h2>
             <Swiper modules={[Autoplay,Navigation]} loop={true} navigation slidesPerView={4} 
-              spaceBetween={1}  className=" d-flex justify-content-between flex-wrap">
+              spaceBetween={1} 
+              breakpoints={{
+                320: {
+                  slidesPerView: 2,
+                  spaceBetween: 2,
+                },
+                480: {
+                  slidesPerView: 2,
+                  spaceBetween: 10,
+                },
+                768: {
+                  slidesPerView: 3,
+                  spaceBetween: 15,
+                },
+                1024: {
+                  slidesPerView: 4,
+                  spaceBetween: 20,
+                },
+              }}
+               
+              className="carrusel d-flex justify-content-between flex-wrap">
                
                 {
                     productos.map((productos)=>
-                         <SwiperSlide >
+                         <SwiperSlide  >
                             <div className="target" key={productos.id}>
                             <img className="img" src={productos.img} alt={productos.name}></img>
                                 <hr />
