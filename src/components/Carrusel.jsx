@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay, Pagination } from 'swiper/modules'; 
-// import { Link,useNavigate } from 'react-router-dom';
+
 import"./css/Carrusel.css"
 export const Carrusel=()=>{
 return(

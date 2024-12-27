@@ -1,0 +1,66 @@
+.modal{
+    background-color: rgb(255, 249, 249);
+    color: rgb(73, 71, 71);
+    height: 100%;
+    width: 400px;
+    display: none;
+    flex-direction: column;
+    z-index: 999;
+    top: 0;
+    margin: 0px 1000px;
+    left: 0;
+    border-radius: 20px;
+    border: solid rgb(112, 109, 109) 2px;
+  
+    position: fixed;
+    /* animation: slideInStretch 0.5s ease-out; */
+    overflow-y:auto; /
+    
+}
+.is-open{
+    display: flex;
+}
+.carrito{
+    font-size: 30px;
+   cursor: pointer;
+   margin: 10px 40px;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+   
+  
+    background-color: rgb(177, 174, 174);
+    height: 60px;
+    width: 100%;
+    border: solid rgb(192, 187, 187) 1px;
+ 
+   
+   
+}
+.titlemodal{
+    margin: 20px 0px 0px 0px;
+    cursor: pointer; 
+    font-size: 25px;
+    color: rgb(88, 88, 88);
+    font-family: sans-serif;
+    font-weight: 200;
+}
+@keyframes slideInStretch {
+    0% {
+      transform: translateX(100%) scaleX(0.5);
+      opacity: 0;
+    }
+    
+    100% {
+      transform: translateX(0) scaleX(1);
+      opacity: 1;
+    }
+  }
+  @media only screen and (max-width: 500px) {
+   
+    .modal{
+      margin: 0px 5px;
+    }
+ }
