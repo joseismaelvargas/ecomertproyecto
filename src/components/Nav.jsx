@@ -3,19 +3,20 @@ import { BiUser } from "react-icons/bi";
 import { CiSearch } from "react-icons/ci";
 import { FaCartShopping } from "react-icons/fa6";
 
-export const Nav=({modalOpen,modalOpen2})=>{
- 
+export const Nav=({modalOpen,modalOpen2,carrito})=>{
+  
     return(
         <>
-     <nav className="navbar navbar-expand-lg bg-body-tertiary">
-  <div className="container-fluid d-flex justify-content-around">
+     <nav className="navbar navbar-expand-lg bg-body-tertiary ">
+  <div className="container-fluid d-flex justify-content-around ">
     <img
       src="https://ecomert.md/wp-content/uploads/2024/02/share.jpg"
       alt="ecomert"
       className="logoeocomert"
     /><div className="incocuenta">
-        <BiUser  className="icono"  onClick={modalOpen2}/>
-         <FaCartShopping  className="icono"onClick={modalOpen}/>
+        <BiUser  className="icono" onClick={modalOpen2}/>
+         <FaCartShopping  className="icono"onClick={modalOpen} />
+         {carrito.length>0?<span className="nunito-uniquifier-span">{carrito.length}</span>:<span></span>}
          </div>
     <button
       className="navbar-toggler"

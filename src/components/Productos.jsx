@@ -1,8 +1,14 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay, Pagination } from 'swiper/modules'; 
+import { useState } from 'react';
+import { Modal } from './Modal';
+import { Usemodal } from './helpers/Usemodal';
 
 import "./css/Productos.css"
-export const Productos=()=>{
+
+export const Productos=({carrito,setCarrito})=>{
+   
+    
     const productos =[
         {
             id:1,
@@ -95,8 +101,40 @@ export const Productos=()=>{
                 cantidad:1,
         }
     ]
+    const Agregar=(id)=>{ 
+      
+        const producto = productos.find((producto) => producto.id === id);
+    
+        if (!producto) {
+            console.error("Producto no encontrado");
+            return;
+        }
+    
+      
+        const productoEnCarrito = carrito.find((item) => item.id === id);
+    
+        let carritonew;
+    
+        if (productoEnCarrito) {
+          
+            carritonew = carrito.map((item) =>
+                item.id === id ? { ...item, cantidad: item.cantidad + 1 } : item
+            );
+        } else {
+        
+            carritonew = [...carrito, { ...producto, cantidad: 1 }];
+        }
+    
+        
+        setCarrito(carritonew);
+    
+     
+      
+    };
+    
     return(
         <>
+        
         <section className="container-fluid">
             <h2 className="nunito-uniquifier-title">Productos Recomendados</h2>
             <Swiper modules={[Autoplay,Navigation]} loop={true} navigation slidesPerView={4} 
@@ -134,7 +172,7 @@ export const Productos=()=>{
                              <p className="nunito-uniquifier-precio">${productos.precio}</p> 
                           
                             </div>
-                               <button className="nunito-uniquifier-boton">Agregar al carrito</button>
+                               <button className="nunito-uniquifier-boton" onClick={()=>Agregar(productos.id)} >Agregar al carrito</button>
                         
                             </div>
                        </SwiperSlide>

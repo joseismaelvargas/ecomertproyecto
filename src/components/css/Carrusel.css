@@ -7,9 +7,9 @@
     background-attachment: fixed; 
      overflow: hidden
 }
-/* .carrusel{
-    margin: 10px;
-} */
+.carrusel{
+    margin: 100px -3px;
+}
 .swiper-button-prev,
 .swiper-button-next {
   
@@ -44,12 +44,22 @@
      overflow: hidden
 
 }
+.imgswiper4{
+  background-image: url("https://arcencohogareasy.vtexassets.com/assets/vtex.file-manager-graphql/images/9c284972-8d1d-46d0-a07d-f788e499a21b___b2ef0050fb55563a0dd3e0e015eedbf9.gif");
+  background-size: cover;
+  background-position: center; 
+  background-repeat: no-repeat; 
+  height: 370px;
+  background-attachment: fixed; 
+   overflow: hidden
+}
 
  @media only screen and (max-width: 500px) {
    
    .imgswiper,
    .imgswiper2,
-   .imgswiper3{
+   .imgswiper3,
+   .imgswiper4{
     height: 250px;
     width: 100vh;
     
