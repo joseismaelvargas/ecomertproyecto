@@ -170,7 +170,7 @@ export const Productos=({carrito,setCarrito})=>{
                             <div className="target-info">
                                <h3 className="nunito-uniquifier">{productos.name}</h3>
                              <p className="nunito-uniquifier-text">{productos.text}</p>
-                             <p className="nunito-uniquifier-precio">${productos.precio}</p> 
+                             <p className="nunito-uniquifier-precio">${productos.precio.toFixed(2)}</p> 
                           
                             </div>
                                <button className="nunito-uniquifier-boton" onClick={()=>Agregar(productos.id)} >Agregar al carrito</button>

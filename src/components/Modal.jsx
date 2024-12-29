@@ -27,7 +27,7 @@ export const Modal=({isOpen,modalClose,carrito,setCarrito})=>{
         setCarrito([...nuevoCarrito]); 
      
       };
-      const dismuirCantidad=(id)=>{
+      const disminuirCantidad=(id)=>{
         const nuevoCarrito=carrito.map((prop=>{
           
           if(prop.id===id){
@@ -56,6 +56,7 @@ export const Modal=({isOpen,modalClose,carrito,setCarrito})=>{
 
 
     return(
+      <>
         <article className={`modal ${isOpen?"is-open":""}`}>
             <div className="container">
               <h1 className='nunito-uniquifier-titlemodal'>Mi Carrito</h1>
@@ -65,34 +66,48 @@ export const Modal=({isOpen,modalClose,carrito,setCarrito})=>{
             </div> 
             <br />
             <div className='carrito2'>
-                <div className="prop">
-
-                {carrito!=0? carrito.map((prop)=>(
+            <div>
+  {carrito.length > 0 ? (
+    <>
+      {carrito.map((prop) => (
+        <div key={prop.id} className="containerCarrito">
+          <img className="imgcarrito" src={prop.img} alt={`Imagen de ${prop.nombre}`} />
+          <p className="nunito-uniquifier-preciocarrito">
+            ${(prop.precio * prop.cantidad).toFixed(2)}
+          </p>
+          <CgMathMinus
+            onClick={() => disminuirCantidad(prop.id)}
+            className="menos"
+            aria-label="Disminuir cantidad"
+          />
+          <p className="nunito-uniquifier-preciocarrito">{prop.cantidad}</p>
+          <BiPlus
+            onClick={() => aumentarCantidad(prop.id)}
+            className="pluz"
+            aria-label="Aumentar cantidad"
+          />
+          <FiX
+            onClick={() => eliminarProducto(prop.id)}
+            className="fix"
+            aria-label="Eliminar producto"
+          />
+        </div>
+      ))}
+      <hr />
+      <h3 className="text-center">Total: ${Totalpagar()}</h3>
+      <button className="boton-comprar">Comprar</button>
+    </>
+  ) : (
+    <h4 className="text-center">
+      <AiOutlineShoppingCart />
+      El carrito está vacío
+    </h4>
+  )}
+</div>
                 
                
-                <div key={prop.id} className="containerCarrito">
-                <img className="imgcarrito" src={prop.img} alt="" />
-           
-                   <p className="nunito-uniquifier-preciocarrito">${prop.precio*prop.cantidad}</p>
-                    <CgMathMinus onClick={()=>dismuirCantidad(prop.id)} className="menos"></CgMathMinus>
-                   <p className="nunito-uniquifier-preciocarrito">{prop.cantidad}</p>
-                     <BiPlus  className ="pluz" onClick={()=>aumentarCantidad(prop.id)}></BiPlus>
-                   <FiX className="fix" onClick={()=>eliminarProducto(prop.id)}></FiX>
-                    
-                 </div>
-                
-            )):<h4 className="text-center" ><AiOutlineShoppingCart></AiOutlineShoppingCart> El carrito esta vacio</h4>}
-            
-                </div>
-                <hr />
-                <h3 className="text-center">Total ${Totalpagar()}</h3>
-            
             </div>
-            
-       
-
-            
-           
-        </article>
+            </article>
+        </>
     )
 }

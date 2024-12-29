@@ -17,6 +17,18 @@
     overflow-y:auto; 
     
 }
+.boton-comprar{
+  /* font-weight: bold; */
+  font-size: 20px;
+  background-color: rgb(253, 146, 5);
+  border: none;
+  color: rgb(255, 252, 252);
+  cursor: pointer;
+  padding: 5px 20px;
+  border-radius: 10px;
+  margin: 0px 110px;
+  font-family: sans-serif;
+}
 .is-open{
     display: flex;
 }
