@@ -127,6 +127,7 @@ export const Productos=({carrito,setCarrito})=>{
     
         
         setCarrito(carritonew);
+ 
     
      
       
@@ -180,9 +181,7 @@ export const Productos=({carrito,setCarrito})=>{
                 }
                   
             </Swiper>
-            {/* <div>
-                <h1>Tambien los Vas a Querer</h1>
-            </div> */}
+           
 
         </section>
         </>

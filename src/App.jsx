@@ -9,12 +9,13 @@ function App() {
   const [carrito, setCarrito] = useState([]);
   const  [isOpen,modalClose,modalOpen]=Usemodal()
   const  [isOpen2,modalClose2,modalOpen2]=Usemodal()
+  console.log(carrito)
   return (
     <>
-    <Nav modalOpen={modalOpen} modalOpen2={modalOpen2} carrito={carrito}></Nav>
+    <Nav modalOpen={modalOpen} modalOpen2={modalOpen2} carrito={carrito} ></Nav>
     <Carrusel></Carrusel>
     <Productos carrito={carrito} setCarrito={setCarrito}></Productos>
-    <Modal isOpen={isOpen}  modalClose={modalClose} carrito={carrito} ></Modal>
+    <Modal isOpen={isOpen}  modalClose={modalClose} carrito={carrito} setCarrito={setCarrito} ></Modal>
     <Modalcuenta isOpen2={isOpen2} modalClose2={modalClose2} ></Modalcuenta>
     </>
   )

@@ -9,4 +9,6 @@ export const Usemodal=(initialValue=false)=>{
     const modalClose=()=>setIsopen(false)
     
     return[isOpen,modalClose,modalOpen]
+   
+    
 }
