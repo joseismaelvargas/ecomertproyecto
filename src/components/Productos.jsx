@@ -155,7 +155,7 @@ export const Productos=({carrito,setCarrito})=>{
                 },
                 1024: {
                   slidesPerView: 4,
-                  spaceBetween: 20,
+                  spaceBetween: 1,
                 },
               }}
                
