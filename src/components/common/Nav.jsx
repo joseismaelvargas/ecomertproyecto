@@ -1,4 +1,4 @@
-import "../App.css"
+import "../css/Nav.css"
 import { BiUser } from "react-icons/bi";
 import { CiSearch } from "react-icons/ci";
 import { FaCartShopping } from "react-icons/fa6";

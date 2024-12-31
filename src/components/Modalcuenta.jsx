@@ -5,26 +5,46 @@ import { MdAlternateEmail } from "react-icons/md";
 import { CiRainbow } from "react-icons/ci";
 import { IoMdArrowForward } from "react-icons/io";
 import { IoClose } from "react-icons/io5";
+import { useForm } from "react-hook-form"
+import { logear } from "./helpers/queries";
 import React from 'react'
 export const Modalcuenta=({isOpen2,modalClose2})=>{
+  const { register, handleSubmit ,formState:{errors},reset,setValue} = useForm();
 
+
+     const loGearse=(data)=>{
+      
+     if(logear(data)){
+      alert("ESta logeado")
+     }else{
+      alert("Error al logearse")
+     }
+     }
     return(
-        <div className={`modal2 ${isOpen2?"is-open":""}`}>
+        <div className={`nunito-uniquifier-modal2 ${isOpen2?"is-open":""}`}>
          
             <p className='nunito-uniquifier-cuenta'>Ingresa con tu usuario y contraseña </p>
             <IoClose className='buttonmodal'onClick={modalClose2}></IoClose>
            
           <div className='datos'>
-            <form>
+            <form onSubmit={handleSubmit(loGearse)}>
 
-           <MdAlternateEmail className="email"></MdAlternateEmail>
-           <input className='inputdatos' type="text" placeholder='Ingrese cuenta' />
-           <br />
-           <br />
-           <CiRainbow className="email"></CiRainbow>
-           <input type="number" className="inputdatos" placeholder="Ingrese Contraseña" />
-           <br />
-           <button className="btniniciarsecion">Ingresar </button>                        
+             <MdAlternateEmail className="email"></MdAlternateEmail>
+              <input className='inputdatos' type="text" placeholder='Ingrese cuenta' {...register("email",
+              {
+                required:"Agregue email.."
+              }
+              )} />
+               {errors.email&&<p className="errors">{errors.email.message}</p>}
+              <br />
+              <br />
+             <CiRainbow className="email"></CiRainbow>
+              <input type="number" className="inputdatos" placeholder="Ingrese Contraseña" {...register("pasword",{
+                required:"Agregue Contraseña"
+              })} />
+              {errors.pasword&&<p className="errors">{errors.pasword.message}</p>}
+               <br />
+              <button className="btniniciarsecion"type="submit" >Ingresar </button>                        
            </form>   
           </div>
      
