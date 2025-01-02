@@ -1,0 +1,93 @@
+
+.nunito-uniquifier-footer {
+    font-family: "Nunito", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    width: 100%;
+    color: white;
+    height: auto;  
+    background-color: rgb(24, 34, 48);
+    font-size: 15px;
+    font-style: normal;
+}
+
+
+    .footerContainer{
+      margin: 30px 0px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    
+    }
+  
+    .flex1, .flex2, .flex3, .flex4, .flex5 {
+      /* font-weight: bold; */
+      margin: 50px -30px; 
+    }
+    .icon{
+        font-size: 35px;
+        margin: 10px 6px;
+    }
+    .tarjeta{
+        margin: 0px 4px;
+    }
+    .bi{
+      margin: 10px;
+      font-size: 10px;
+      color:  rgb(95, 97, 97);
+    }
+    .footer h4{
+        font-size: 2px;
+    }
+    footer p{
+      color: rgb(255, 253, 253);
+    } @media only screen and (max-width: 700px) {
+      .secctioninicial{
+          flex-wrap: wrap;
+      }
+      .secctionpixel{
+          flex-wrap: wrap;
+      }
+      .pixel1{
+          margin: 60px;
+      }
+      .pixel{
+          margin: 20px auto;
+      }
+      .title{
+          font-size: 70px;
+          margin: 0px 40px;
+      }
+      .parrafo{
+          margin: 0px 40px;
+      }
+      .estilobutton{
+          margin: 0px 40px;
+      }
+      .imgmain{
+          margin: 40px auto;
+      }
+     .boxfather{
+      display: flex;
+      flex-wrap: wrap;
+     }
+  }
+  @media only screen and (max-width: 450px) {
+    footer {
+      padding: 10px; /* Reduce el padding para pantallas muy pequeñas */
+  }
+
+  .footerContainer {
+      justify-content: center; /* Centra los elementos del footer en pantallas muy pequeñas */
+  }
+
+  .flex1, .flex2, .flex3, .flex4, .flex5 {
+      width: 50%; /* Asegura que las secciones ocupen todo el ancho */
+      margin: 10px 0; /* Reduce los márgenes entre las secciones */
+      text-align: center; /* Centra el contenido dentro de cada sección */
+  }
+
+  .bi {
+      font-size: 18px; /* Ajusta el tamaño de los iconos en pantallas pequeñas */
+  }
+  }
