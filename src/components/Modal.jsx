@@ -57,7 +57,7 @@ export const Modal=({isOpen,modalClose,carrito,setCarrito})=>{
 
     return(
       <>
-        <article className={`modal ${isOpen?"is-open":""}`}>
+        <article className={`modalcarrito ${isOpen?"is-open":""}`}>
             <div className="container">
               <h1 className='nunito-uniquifier-titlemodal'>Mi Carrito</h1>
                <h1 className='titlemodal' onClick={modalClose}>X</h1>
