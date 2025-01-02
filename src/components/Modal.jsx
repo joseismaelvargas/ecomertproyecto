@@ -98,10 +98,11 @@ export const Modal=({isOpen,modalClose,carrito,setCarrito})=>{
       <button className="boton-comprar">Comprar</button>
     </>
   ) : (
-    <h4 className="text-center">
-      <AiOutlineShoppingCart />
+    <h5 className="text-center">
+      <AiOutlineShoppingCart className="carritovacio" />
+      <br />
       El carrito está vacío
-    </h4>
+    </h5>
   )}
 </div>
                 

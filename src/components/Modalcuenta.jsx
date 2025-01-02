@@ -1,23 +1,51 @@
 import "./css/modalcuenta.css"
 import { AiTwotoneCloseCircle } from "react-icons/ai";
 import { AiOutlineMail } from "react-icons/ai";
-
+import { MdAlternateEmail } from "react-icons/md";
+import { CiRainbow } from "react-icons/ci";
+import { IoMdArrowForward } from "react-icons/io";
+import { IoClose } from "react-icons/io5";
+import { useForm } from "react-hook-form"
+import { logear } from "./helpers/queries";
 import React from 'react'
 export const Modalcuenta=({isOpen2,modalClose2})=>{
+  const { register, handleSubmit ,formState:{errors},reset,setValue} = useForm();
 
+
+     const loGearse=(data)=>{
+      
+     if(logear(data)){
+      alert("ESta logeado")
+     }else{
+      alert("Error al logearse")
+     }
+     }
     return(
-        <div className={`modal2 ${isOpen2?"is-open":""}`}>
-          <div className='container2'>
+        <div className={`nunito-uniquifier-modal2 ${isOpen2?"is-open":""}`}>
+         
+            <p className='nunito-uniquifier-cuenta'>Ingresa con tu usuario y contraseña </p>
+            <IoClose className='buttonmodal'onClick={modalClose2}></IoClose>
            
-            <p className='parrafocontainer'>Ingresa a tu cuenta Vea seleccionando una de las opciones para confirmar tu identidad</p>
-            <AiTwotoneCloseCircle className='buttonmodal'onClick={modalClose2}></AiTwotoneCloseCircle>
-          
-          </div>
-          <hr />
           <div className='datos'>
+            <form onSubmit={handleSubmit(loGearse)}>
 
-           <AiOutlineMail className='email'></AiOutlineMail>
-           <input className='inputdatos' type="text" placeholder='Ingrese cuenta' />
+             <MdAlternateEmail className="email"></MdAlternateEmail>
+              <input className='inputdatos' type="text" placeholder='Ingrese cuenta' {...register("email",
+              {
+                required:"Agregue email.."
+              }
+              )} />
+               {errors.email&&<p className="errors">{errors.email.message}</p>}
+              <br />
+              <br />
+             <CiRainbow className="email"></CiRainbow>
+              <input type="number" className="inputdatos" placeholder="Ingrese Contraseña" {...register("pasword",{
+                required:"Agregue Contraseña"
+              })} />
+              {errors.pasword&&<p className="errors">{errors.pasword.message}</p>}
+               <br />
+              <button className="btniniciarsecion"type="submit" >Ingresar </button>                        
+           </form>   
           </div>
      
           <div>
