@@ -4,14 +4,15 @@
 .nunito-uniquifier-modal2{
     width: 450px;
     height: auto;
-    background-color: rgba(218, 213, 213, 0.925);
+    background-color: rgba(218, 213, 213, 0.993);
     display: none;
      top: 0;
     position: fixed;
-    margin: 80px 50px;
+    margin: 95px 50px;
     border-radius: 10px;
     flex-direction: column;
     z-index: 999;
+    border: solid 2px rgb(73, 71, 71);
   
     font-family: "Nunito", serif;
    

@@ -11,6 +11,29 @@
 width: 100%;
 z-index: 1000;
 }
+.iconoadmin{
+    background-color: rgb(219, 217, 217);
+  border-radius: 100%;
+  padding: 13px 13px;
+    font-size:60px;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+    position: fixed;
+    margin: -7px 100px;
+}
+.iconoadmin:hover{
+    color: rgba(221, 37, 37, 0.842);
+}
+.nunito-uniquifier-link {
+    font-family: "Nunito", serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-size: 17px;
+    color: rgb(68, 64, 64);
+    text-decoration: none;
+    font-style: normal;
+}
+
 .nav{
   margin-top: 0;
   width: 100%;
@@ -52,7 +75,7 @@ z-index: 1000;
 
 .icono{
   font-size: 57px;
-  margin: 0px 7px;
+  margin: 0px 3px;
   cursor: pointer;
   background-color: rgb(219, 217, 217);
   border-radius: 100%;

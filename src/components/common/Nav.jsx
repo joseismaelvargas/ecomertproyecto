@@ -2,22 +2,29 @@ import "../css/Nav.css"
 import { BiUser } from "react-icons/bi";
 import { CiSearch } from "react-icons/ci";
 import { FaCartShopping } from "react-icons/fa6";
-
+import { GrUserAdmin } from "react-icons/gr";
+import { Link,NavLink,useNavigate } from "react-router-dom";
 export const Nav=({modalOpen,modalOpen2,carrito})=>{
   
     return(
         <>
      <nav className="navbar navbar-expand-lg bg-body-tertiary ">
   <div className="container-fluid d-flex justify-content-around ">
+    <Link to="/">
     <img
       src="https://ecomert.md/wp-content/uploads/2024/02/share.jpg"
       alt="ecomert"
-      className="logoeocomert"
-    /><div className="incocuenta">
+      className="logoeocomert" 
+    />
+    </Link>
+    
+    <div className="incocuenta">
         <BiUser  className="icono" onClick={modalOpen2}/>
          <FaCartShopping  className="icono"onClick={modalOpen} />
-         {carrito.length>0?<span className="nunito-uniquifier-span">{carrito.length}</span>:<span></span>}
-         </div>
+         {carrito.length>0?<span className="nunito-uniquifier-span">{carrito.length}</span>:<span></span>}     
+    
+         </div>  
+             
     <button
       className="navbar-toggler"
       type="button"
@@ -29,10 +36,15 @@ export const Nav=({modalOpen,modalOpen2,carrito})=>{
     >
       <span className="navbar-toggler-icon"></span>
     </button>
-    
+   
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
+ 
+       
+      {/* <Link to={"/administrador"} className={"nunito-uniquifier-link"}></Link> */}
+      <Link to={"/administrador"}><GrUserAdmin className="iconoadmin" ></GrUserAdmin></Link>
+          
           <form className="d-flex" role="search">
             <input
               className="inputnav form-control me-2"
