@@ -3,7 +3,7 @@ import { AiTwotoneCloseCircle } from "react-icons/ai";
 import { AiOutlineMail } from "react-icons/ai";
 import { MdAlternateEmail } from "react-icons/md";
 import { CiRainbow } from "react-icons/ci";
-import { IoMdArrowForward } from "react-icons/io";
+
 import { IoClose } from "react-icons/io5";
 import { useForm } from "react-hook-form"
 import { logear } from "./helpers/queries";

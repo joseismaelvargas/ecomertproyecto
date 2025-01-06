@@ -10,7 +10,7 @@ import "./css/Productos.css"
 export const Productos=({carrito,setCarrito})=>{
      
      const [producto,setProducto]=useState([])
-       
+       console.log(producto)
     const apiProdcto=async()=>{
        try{
        const api=await(fetch(URL_productos))
@@ -90,8 +90,8 @@ export const Productos=({carrito,setCarrito})=>{
                
                 {
                     producto.map((productos)=>
-                         <SwiperSlide  >
-                            <div className="target" key={productos.id}>
+                         <SwiperSlide key={productos.id} >
+                            <div className="target" >
                             <img className="img" src={productos.img} alt={productos.name}></img>
                                 <hr />
                             <div className="target-info">

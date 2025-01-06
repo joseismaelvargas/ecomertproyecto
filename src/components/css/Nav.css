@@ -19,7 +19,7 @@ z-index: 1000;
     cursor: pointer;
     color: rgb(0, 0, 0);
     position: fixed;
-    margin: -7px 100px;
+    margin: -3px 100px;
 }
 .iconoadmin:hover{
     color: rgba(221, 37, 37, 0.842);

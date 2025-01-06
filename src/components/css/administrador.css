@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Changa:wght@200..800&family=Dosis:wght@200..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&family=Patua+One&family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:wght@100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&family=Signika:wght@300..700&family=Yanone+Kaffeesatz:wght@200..700&family=Yusei+Magic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Changa:wght@200..800&family=Dosis:wght@200..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&family=Patua+One&family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:wght@100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&family=Signika:wght@300..700&family=Yanone+Kaffeesatz:wght@200..700&family=Yusei+Magic&display=swap');
 .Administrador{
     margin: 100px -100px;
 }
@@ -26,4 +28,17 @@
     height: 40px;
    
 
+}
+.nunito-uniquifier-table{
+   
+    font-family: "Nunito", serif;
+   
+    font-weight: 600;
+   
+    color: rgb(68, 64, 64);
+   
+    font-style: normal;
+}
+.nunito-uniquifier-table thead{
+    font-size: 20px;
 }

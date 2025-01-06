@@ -1,13 +1,27 @@
 import "../css/administrador.css"
-import { ModalAdmin } from "../ModalAdmin"
+import { Modaladministrador } from "../Modaladministrador";
 import { FaRegEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { FaRegEye } from "react-icons/fa";
 import { MdAddBusiness } from "react-icons/md";
-import { URL_productos } from "../helpers/queries";
+import {  URL_productos } from "../helpers/queries";
 import { useEffect, useState } from "react";
-export const Administrador=()=>{
+import { borrarProducto } from "../helpers/queries";
+import { editarProducto } from "../helpers/queries";
+import { Modaleditar } from "../Modaleditar";
+export const Administrador=( )=>{
     const [productos,setProductos]=useState([])
+    const [creando,setCreando]=useState(true)
+    const [id,setid]=useState([])
+    const [productoSeleccionado, setProductoSeleccionado] = useState({
+        name: '',
+        img: '',
+        text: '',
+        precio: '',
+        categoria: '',
+      });
+      
+  
     const Api=async()=>{
    try{
        const response=await fetch(URL_productos)
@@ -25,15 +39,64 @@ export const Administrador=()=>{
 
      },[])
 
+      const borrar=(id)=>{
+        Swal.fire({
+            title: "Eliminar",
+            text: "Esta seguro de Eliminar el Producto",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Si"
+          }).then((result) => {
+            if (result.isConfirmed) {
+                borrarProductoadmin(id)
+              Swal.fire({
+                title: "Eliminado",
+                text: "El producto fue eliminado.",
+                icon: "success"
+              });
+
+            }
+          });
+      }
+     const borrarProductoadmin=async(id)=>{
+         try{
+            const response=await fetch(borrarProducto(id))
+            
+            if(response.status===200){
+                let actualizar=await Api()
+                if(actualizar.status===200){
+                let datos=await actualizar.json()
+                setProductos(datos)
+            }
+            }
+            
+         }catch{
+            console.log("Ocurrio un error con la petision")
+         }
+     }
+    const editarProducto= (id)=>{
+      setCreando(false)
+       setid(id)
+        let productoencontrado=productos.find((element)=>element.id===id)
+         if(productoencontrado){
+          setProductoSeleccionado(productoencontrado)
+          console.log(productoSeleccionado)
+         }
+     }
+    console.log(id)
+
     return(
         <>
        
         <section className=" Administrador" > 
-       <ModalAdmin></ModalAdmin>
-       <h2 className="text-center">Section administrador</h2>
-       
-       <button type="button" class="button-admin btn btn-Light" data-bs-toggle="modal" data-bs-target="#exampleModal"><MdAddBusiness></MdAddBusiness></button>
-          <div className="table responsive mt-5">
+     
+       <h2 className="text-center">Administrador de la Pagina</h2>
+       <Modaladministrador productos={productos} setProductos={setProductos} ></Modaladministrador>
+       <Modaleditar productoSeleccionado={productoSeleccionado} idadmin={id} productos={productos} setCreando={setCreando} creando={creando}></Modaleditar>
+
+          <div className="nunito-uniquifier-table responsive mt-5">
             <table className="table table-hover table-bordered border-light text-center">
                 <thead>
                     <tr>
@@ -50,11 +113,11 @@ export const Administrador=()=>{
                           <tr key={item.id}>
                         <td>{item.id}</td>
                         <td>{item.name}</td>
-                        <td>limpiesa</td>
-                        <td>${item.precio}</td>
+                        <td>{item.categoria}</td>
+                        <td>${item.precio.toFixed(2)}</td>
                         <td>
-                           <button className="btn btn-info button-opciones"><FaRegEdit></FaRegEdit></button> 
-                           <button className="btn btn-danger button-opciones"><MdDelete></MdDelete></button>
+                           <button className="btn btn-info button-opciones"  data-bs-toggle="modal" data-bs-target="#miModaledit" onClick={()=>editarProducto(item.id)}><FaRegEdit></FaRegEdit></button> 
+                           <button className="btn btn-danger button-opciones" onClick={()=>borrar(item.id)}><MdDelete></MdDelete></button>
                            <button className=" btn btn-warning button-opciones"><FaRegEye></FaRegEye></button>
                         </td>
                         </tr>)
@@ -65,6 +128,11 @@ export const Administrador=()=>{
             </table>
 
           </div>
+          <div>
+    
+      
+    </div>
+
         </section>
         </>   
     )
