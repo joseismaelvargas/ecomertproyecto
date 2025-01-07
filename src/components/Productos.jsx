@@ -3,9 +3,9 @@ import { Navigation, Autoplay, Pagination } from 'swiper/modules';
 import { useState,useEffect } from 'react';
 import { Modal } from './Modal';
 import { Usemodal } from './helpers/Usemodal';
-import { URL_productos } from './helpers/queries';
-
+import { URL_productos } from './helpers/queries'
 import "./css/Productos.css"
+import { Link } from 'react-router-dom';
 
 export const Productos=({carrito,setCarrito})=>{
      
@@ -92,7 +92,9 @@ export const Productos=({carrito,setCarrito})=>{
                     producto.map((productos)=>
                          <SwiperSlide key={productos.id} >
                             <div className="target" >
-                            <img className="img" src={productos.img} alt={productos.name}></img>
+                            <Link to={`/carasteristica/${productos.id}`}>
+      <img className="img" src={productos.img} alt={productos.name} />
+    </Link>
                                 <hr />
                             <div className="target-info">
                                <h3 className="nunito-uniquifier">{productos.name}</h3>
@@ -100,8 +102,9 @@ export const Productos=({carrito,setCarrito})=>{
                              <p className="nunito-uniquifier-precio">${productos.precio.toFixed(2)}</p> 
                           
                             </div>
+                           
                                <button className="nunito-uniquifier-boton" onClick={()=>Agregar(productos.id)} >Agregar al carrito</button>
-                        
+                               
                             </div>
                        </SwiperSlide>
                     )

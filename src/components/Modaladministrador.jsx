@@ -9,12 +9,7 @@ import { MdAddBusiness } from "react-icons/md";
 
 export const Modaladministrador=({producto,setProductos})=>{
     const {register,handleSubmit,formState:{errors},reset,setValue}=useForm()
-    
-   
 
-    //   let idadmin=id
-    //   let productosadmin = productos || [];
-    //   console.log(productosadmin)
     
     const agregar=(data,e)=>{
         e.preventDefault()

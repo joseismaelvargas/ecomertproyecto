@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { borrarProducto } from "../helpers/queries";
 import { editarProducto } from "../helpers/queries";
 import { Modaleditar } from "../Modaleditar";
+import { Link,NavLink,useNavigate } from "react-router-dom";
 export const Administrador=( )=>{
     const [productos,setProductos]=useState([])
     const [creando,setCreando]=useState(true)
@@ -27,7 +28,7 @@ export const Administrador=( )=>{
        const response=await fetch(URL_productos)
        if(response.status===200){
         let datos=await response.json()
-        console.log(datos)
+  
          setProductos(datos)
        }
    }catch{
@@ -82,11 +83,12 @@ export const Administrador=( )=>{
         let productoencontrado=productos.find((element)=>element.id===id)
          if(productoencontrado){
           setProductoSeleccionado(productoencontrado)
-          console.log(productoSeleccionado)
+         
          }
      }
-    console.log(id)
-
+     const verProducto=(id)=>{
+     window.location.href='/page/detalles.html?id='+id
+     }
     return(
         <>
        
@@ -118,7 +120,8 @@ export const Administrador=( )=>{
                         <td>
                            <button className="btn btn-info button-opciones"  data-bs-toggle="modal" data-bs-target="#miModaledit" onClick={()=>editarProducto(item.id)}><FaRegEdit></FaRegEdit></button> 
                            <button className="btn btn-danger button-opciones" onClick={()=>borrar(item.id)}><MdDelete></MdDelete></button>
-                           <button className=" btn btn-warning button-opciones"><FaRegEye></FaRegEye></button>
+                           <Link to={`/carasteristica/${item.id}`} className=" btn btn-warning button-opciones">
+                            <FaRegEye></FaRegEye></Link>
                         </td>
                         </tr>)
                     }
