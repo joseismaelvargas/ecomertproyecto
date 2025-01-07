@@ -1,5 +1,3 @@
-import { Productos } from "../Productos"
-
 export const URL_productos=import.meta.env.VITE_API_PRODUCTOS
 export const agregarProducto = async (producto) => {
   try {

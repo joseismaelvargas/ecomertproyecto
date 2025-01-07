@@ -1,7 +1,12 @@
 {
   "productos": [
-    
-  
-    
+    {
+      "id": "9e4c5a45-12d1-43b6-8a89-1f9075bd52e1",
+      "name": "pañales",
+      "img": "asfdfsda",
+      "text": "sdfsfdfdssdf",
+      "precio": 19,
+      "categoria": "Refrigerios"
+    }
   ]
 }
