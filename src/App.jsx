@@ -5,6 +5,7 @@ import React,{useState} from "react";
 import {BrowserRouter, Route,Routes}from"react-router-dom"
 import { Administrador } from "./components/page/Administrador";
 import { ProductoCarasteristica } from "./components/page/ProductoCarasteristica.jsx";
+import { Footer } from "./common/footer.jsx";
 function App() {
   const [carrito, setCarrito] = useState([]);
   const  [isOpen,modalClose,modalOpen]=Usemodal()
@@ -18,6 +19,7 @@ function App() {
       <Route path="/administrador" element={<Administrador></Administrador>}></Route>
       <Route path={`/carasteristica/:id`} element={<ProductoCarasteristica></ProductoCarasteristica>}></Route>
     </Routes>
+    <Footer></Footer>
     </BrowserRouter>
    
   
