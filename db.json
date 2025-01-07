@@ -1,44 +1,7 @@
 {
   "productos": [
-    {
-      "id": "9457f4a2-b565-493a-a091-3e5de305de69",
-      "name": "pepino",
-      "img": "dfsdfs",
-      "text": "fdsfdas",
-      "precio": 3,
-      "categoria": "Viberes"
-    },
-    {
-      "id": "cc17c708-7d58-44f0-805d-bbb5a1791b15",
-      "name": "fufad",
-      "img": "fdsf",
-      "text": "fdsfasdf",
-      "precio": 200000,
-      "categoria": "Viberes"
-    },
-    {
-      "id": "22b2f358-8670-4e38-91fc-95c51c123f78",
-      "name": "carne",
-      "img": "fdsafs",
-      "text": "fdsafsd",
-      "precio": 22,
-      "categoria": "Limpieza"
-    },
-    {
-      "id": "72894e07-dd31-46d2-b87c-1a3cae2fa701",
-      "name": "fas",
-      "img": "322",
-      "text": "dff3",
-      "precio": 33,
-      "categoria": "Viberes"
-    },
-    {
-      "id": "f5f4d623-a139-4e08-ae01-913c81659912",
-      "name": "adfdfa",
-      "img": "sdsaf",
-      "text": "fsas",
-      "precio": 3,
-      "categoria": "Viberes"
-    }
+    
+  
+    
   ]
 }
