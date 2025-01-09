@@ -1,12 +1,74 @@
 {
   "productos": [
     {
-      "id": "9e4c5a45-12d1-43b6-8a89-1f9075bd52e1",
-      "name": "pañales",
-      "img": "asfdfsda",
-      "text": "sdfsfdfdssdf",
-      "precio": 19,
-      "categoria": "Refrigerios"
+      "id": "cddcc17a-5d3a-4d2d-afbd-367fa8491243",
+      "name": "Muebles Gacela",
+      "namedetallado": "Placard 6P 4C Nordico 176X47X180 Miel/Blanco Muebles Gacela",
+      "img": "https://arcencohogar.vtexassets.com/arquivos/ids/369976-800-800?v=638404070109600000&width=800&height=800&aspect=true",
+      "text": "¿Buscás un placard que combine funcionalidad y diseño? El Placard de Nordic lo tiene todo. Este mueble es perfecto para guadar todo lo que necesitás, de manera ordenada y práctica.",
+      "precio": 409,
+      "categoria": "Muebles",
+      "cantidad": 1
+    },
+    {
+      "id": "020f9fb8-8d90-42df-9e22-7eaafb180be2",
+      "name": "Pelopincho",
+      "namedetallado": "Pileta Redonda 305X75 Cm 5500 L Pelopinch",
+      "img": "https://arcencohogar.vtexassets.com/arquivos/ids/273468-800-800?v=637651576080730000&width=800&height=800&aspect=true",
+      "text": "Transformá tu casa en el lugar perfecto para disfrutar del verano con la pileta redonda Pelopincho. Ideal para momentos en familia o con amigos, es la opción perfecta para refrescarte y relajarte.",
+      "precio": 3443,
+      "categoria": "Recomendados",
+      "cantidad": 1
+    },
+    {
+      "id": "426c0e55-295d-4964-ac21-9d9ca800baa8",
+      "name": "Whirlpool",
+      "namedetallado": "Lavarropas Carga Frontal Wnq70Ab 7Kg Whirlpool",
+      "img": "https://arcencohogar.vtexassets.com/arquivos/ids/342450-800-800?v=638115665553870000&width=800&height=800&aspect=true",
+      "text": "Elegí el Lavarropas Carga Frontal Wnq70Ab 7Kg Whirlpool para tener ropa limpia, fresca y sin complicaciones. Su diseño eficiente y moderno hace que lavar sea más fácil y rápido, sin perder calidad ni energía.",
+      "precio": 233,
+      "categoria": "Recomendados",
+      "cantidad": 1
+    },
+    {
+      "id": "10347d23-1565-49ad-805e-d2a461efbceb",
+      "name": "NEX",
+      "namedetallado": "Aire Acondicionado Inverter On Off Frío Calor 3200 Nex",
+      "img": "https://arcencohogar.vtexassets.com/arquivos/ids/328991-800-800?v=637963363021900000&width=800&height=800&aspect=true",
+      "text": "El Aire Acondicionado Nex Inverter On/Off Frío/Calor 3200 es la solución perfecta para mantener un ambiente confortable durante todo el año. Con una capacidad de 3200, este aire acondicionado ofrece un rendimiento eficiente tanto en frío como en calor, adaptándose a tus necesidades estacionales con facilidad.",
+      "precio": 2243,
+      "categoria": "Recomendados",
+      "cantidad": 1
+    },
+    {
+      "id": "ae6f9c35-477b-424d-96bd-829459180049",
+      "name": "BBQ Grill",
+      "namedetallado": "Horno Cerámica Kadú K21 Negro 125X85X100 Cm BBQ Grill",
+      "img": "https://arcencohogar.vtexassets.com/arquivos/ids/312592-800-800?v=637764006813730000&width=800&height=800&aspect=true",
+      "text": "Horno Cerámica BBQ Grill Kadú K21 Negro 125x85x100 Cm",
+      "precio": 333,
+      "categoria": "Recomendados",
+      "cantidad": 1
+    },
+    {
+      "id": "e02736e6-2388-40e6-abd7-6a306270cbf2",
+      "name": "Cc Outdoor",
+      "namedetallado": "Reposera Simple Andes Aluminio Cc Outdoor\nReferencia: 1444905",
+      "img": "https://arcencohogar.vtexassets.com/arquivos/ids/384819-800-800?v=638661573316330000&width=800&height=800&aspect=true",
+      "text": "Aprovechá la oportunidad de disfrutar de momentos de relax al aire libre con la Reposera Simple Andes Aluminio cc outdoor. Ideal para cualquier espacio exterior, esta reposera es la solución perfecta para descansar con estilo y comodidad.",
+      "precio": 33,
+      "categoria": "Muebles",
+      "cantidad": 1
+    },
+    {
+      "id": "bd8cac1b-2632-4a96-90e3-13641358c275",
+      "name": "Deper",
+      "namedetallado": "Hormigonera Compacta 130 Lts",
+      "img": "https://arcencohogar.vtexassets.com/arquivos/ids/273755-800-800?v=637651577792600000&width=800&height=800&aspect=true",
+      "text": "Hormigonera Compacta 130 Lts",
+      "precio": 33,
+      "categoria": "Herramientas",
+      "cantidad": 1
     }
   ]
 }

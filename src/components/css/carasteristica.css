@@ -1,3 +1,117 @@
-.sectioncarasteristica{
-    margin: 100px;
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Changa:wght@200..800&family=Dosis:wght@200..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&family=Patua+One&family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:wght@100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&family=Signika:wght@300..700&family=Yanone+Kaffeesatz:wght@200..700&family=Yusei+Magic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Changa:wght@200..800&family=Dosis:wght@200..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&family=Patua+One&family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:wght@100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&family=Signika:wght@300..700&family=Yanone+Kaffeesatz:wght@200..700&family=Yusei+Magic&display=swap');
+
+.nunito-uniquifier-section {
+    font-family: "Nunito", serif;
+    font-optical-sizing: auto;
+    
+    margin: 140px 0px;
+    font-style: normal;
+}
+.title-especifico{
+    font-size: 20px;
+    color: gray;
+}
+.producto-div{
+    /* border: solid 1px black; */
+    width: 100%;
+    height: auto;
+    display: flex;
+    padding: 10px 50px;
+    justify-content: space-around;
+
+}
+.porcentajedescuento{
+    background-color: rgb(15, 123, 211);
+    padding: 5px 5px;
+    border-radius: 10px;
+    font-weight: bold;
+    color: white;
+}
+.oferta{
+ font-weight: 500;
+ font-size: 20px;
+ 
+
+}
+.precio{
+    font-size: 24px;
+    font-weight: bold;
+}
+.title{
+    font-size: 21px;
+    font-weight: bold;
+    color: rgb(18, 18, 19);
+}
+.medios{
+    font-size: 25px;
+    margin: 20px;
+    font-weight: bold;
+    color: rgb(68, 67, 67);
+}
+.titledescripcion{
+    font-weight: bold;
+    font-size: 30px;
+    color: rgb(61, 61, 61);
+}
+.parrafosdescripcion{
+    font-size: 20px;
+    font-weight: 400;
+    color: gray;
+}
+.container-producto{
+    /* border: solid 2px black; */
+    display: flex;
+    flex-direction: column; 
+    box-shadow: 2px 0px 0px  rgb(145, 143, 143);
+   width: 750px;
+   padding: 0px 50px;
+}
+.tarjetacarasteristica{
+    width: 100px;
+}
+.img{
+
+    width:400px;
+    height: 350px;
+}
+.descripcion{
+    /* border: solid 2px black; */
+    display: flex;
+    width: 600px;
+    flex-direction: column;
+    margin: 0px 20px;
+   
+}
+.buttoncarasteristicas{
+    border: none;
+    width: 350px;
+    margin: 10px;
+    background-color: rgb(241, 167, 28);
+    padding: 15px;
+    font-size: 19px;
+    font-weight: bold;
+    border-radius: 10px;
+
+}
+.button1{
+
+    border: none;
+    margin: 0px 20px;
+    font-size: 23px;
+    font-weight: bold;
+    background-color: rgb(255, 255, 255);
+    color: rgb(110, 108, 106);
+    box-shadow: 2px 2px 2px  rgb(145, 143, 143);
+    
+    
+}
+.button2{
+    box-shadow: 2px 2px 2px   rgb(145, 143, 143);
+    border: none;
+    margin: 0px 20px;
+    font-size: 23px;
+    font-weight: bold;
+    background-color: rgb(255, 255, 255);
+    color: rgb(110, 108, 106);  
 }

@@ -11,7 +11,7 @@ import React,{useEffect, useState} from 'react'
 
 
 export const Modal=({isOpen,modalClose,carrito,setCarrito})=>{
-
+     console.log(carrito)
    
     const aumentarCantidad = (id) => {
           const nuevoCarrito = carrito.map((prop) => {

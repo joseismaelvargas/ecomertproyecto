@@ -17,10 +17,14 @@ export const Modaladministrador=({producto,setProductos})=>{
          let producto={
               id:uuidv4(),
               name:data.name,
+              namedetallado:data.namedetallado,
               img:data.img,
               text:data.text,
               precio:Number(data.precio),
               categoria:data.categoria,
+              
+              cantidad:1
+              
          }
          
          agregarProductos(producto)
@@ -82,13 +86,37 @@ export const Modaladministrador=({producto,setProductos})=>{
             message:"El nombre debe tener al menos 3 caracteres"
           },
           maxLength:{
-            value:10,
-            message:"El nombre no puede tener más de 10 caracteres"
+            value:30,
+            message:"El nombre no puede tener más de 30 caracteres"
           }
         })}/>
         
       </FloatingLabel>
           {errors.name&&<p className="errors mb-3">{errors.name.message}</p>}
+
+
+          <FloatingLabel
+        controlId="floatingTextarea"
+        label="Nombre detallado"
+        className="mb-3"
+      >
+        <Form.Control as="textarea" placeholder="Leave a comment here"
+          
+        
+        {...register("namedetallado",{
+          required:"Agregue el Nombre del Producto",
+          minLength:{
+            value:3,
+            message:"El nombre debe tener al menos 3 caracteres"
+          },
+          maxLength:{
+            value:200,
+            message:"El nombre no puede tener más de 200 caracteres"
+          }
+        })}/>
+
+        </FloatingLabel>    
+      {errors.namedetallado&&<p className="errors mb-3">{errors.namedetallado.message}</p>}
       <FloatingLabel
         controlId="floatingTextarea"
         label="Agregue Imagen"
@@ -109,9 +137,12 @@ export const Modaladministrador=({producto,setProductos})=>{
     {...register("categoria", { required: "Seleccione Categoria" })}
   >
     <option value="">Seleccione la categoría del Producto</option>
-    <option value="Limpieza">Limpieza</option>
-    <option value="Viberes">Viberes</option>
-    <option value="Refrigerios">Refrigerios</option>
+    <option value="Baños y cocinas">Baños y cocinas</option>
+    <option value="Electrodomesticos">Electrodomesticos</option>
+    <option value="Textil y basar">Textil y basar</option>
+    <option value="Muebles">Muebles</option>
+    <option value="Herramientas">Herramientas</option>
+    <option value="Mas vendidos">Mas vendidos</option>
   </Form.Select>
 </FloatingLabel>
         {errors.categoria&&<p className='errors mb-3'>{errors.categoria.message}</p>}
@@ -128,11 +159,11 @@ export const Modaladministrador=({producto,setProductos})=>{
               message:"la informacion debe tener mas de 5 caracteres"
             },
             maxLength:{
-              value:20,
+              value:500,
               message:"la informacion no puede tener  más de 20 caracteres"
             }})}/>
       </FloatingLabel>
-      {errors.informacion&&<p className="errors mb-3">{errors.informacion.message}</p>}
+      {errors.text&&<p className="errors mb-3">{errors.text.message}</p>}
       <FloatingLabel className='mb-3' controlId="floatingTextarea2" label="Precio del Producto">
         <Form.Control type='number' style={{ height: '50px',width:'150px' }} {...register("precio",{
           required:"Agregue el Precio del Producto",
