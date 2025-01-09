@@ -15,8 +15,9 @@ export const Modalcuenta=({isOpen2,modalClose2})=>{
      const loGearse=(data)=>{
       
      if(logear(data)){
-      alert("ESta logeado")
+    
       nav("/administrador")
+      location.reload()
      }else{
       alert("Error al logearse")
      }

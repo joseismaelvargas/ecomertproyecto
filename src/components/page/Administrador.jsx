@@ -3,7 +3,6 @@ import { Modaladministrador } from "../Modaladministrador";
 import { FaRegEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { FaRegEye } from "react-icons/fa";
-import { MdAddBusiness } from "react-icons/md";
 import {  URL_productos } from "../helpers/queries";
 import { useEffect, useState } from "react";
 import { borrarProducto } from "../helpers/queries";

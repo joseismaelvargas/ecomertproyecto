@@ -40,11 +40,14 @@ export const Nav=({modalOpen,modalOpen2,carrito,logeado,setlogeado})=>{
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
- 
-       
-        {logeado!==""?  ( <><Link to={"/administrador"}><GrUserAdmin className="iconoadmin" ></GrUserAdmin></Link> </>):("")}
-   
-          
+        {logeado.length > 0 ? (
+  <Link to={"/administrador"}>
+    <GrUserAdmin className="iconoadmin" />
+  </Link>
+) : (
+  ""
+)} 
+               
           <form className="d-flex" role="search">
             <input
               className="inputnav form-control me-2"
