@@ -20,6 +20,7 @@ export const Modaleditar=({productoSeleccionado,idadmin,setCreando,creando})=>{
         setValue('categoria',productoSeleccionado.categoria),
         setValue('text',productoSeleccionado.text)
         setValue('precio',productoSeleccionado.precio)
+        setValue('namedetallado',productoSeleccionado.namedetallado)
 
       }
     },[productoSeleccionado,setValue])
@@ -27,12 +28,15 @@ export const Modaleditar=({productoSeleccionado,idadmin,setCreando,creando})=>{
         e.preventDefault()
        
         let producto={
+            
             id:productoSeleccionado.id,
             name:data.name,
+            namedetallado:data.namedetallado,
             img:data.img,
             text:data.text,
             precio:Number(data.precio),
             categoria:data.categoria,
+            cantidad:productoSeleccionado.cantidad
        }
          
         editarproductoadmin(producto,id)
@@ -84,13 +88,37 @@ export const Modaleditar=({productoSeleccionado,idadmin,setCreando,creando})=>{
             message:"El nombre debe tener al menos 3 caracteres"
           },
           maxLength:{
-            value:10,
-            message:"El nombre no puede tener más de 10 caracteres"
+            value:30,
+            message:"El nombre no puede tener más de 30 caracteres"
           }
         })}/>
+       
         
       </FloatingLabel>
           {errors.name&&<p className="errors mb-3">{errors.name.message}</p>}
+
+          <FloatingLabel
+        controlId="floatingTextarea"
+        label="Nombre detallado"
+        className="mb-3"
+      >
+        <Form.Control as="textarea" placeholder="Leave a comment here"
+          
+        
+        {...register("namedetallado",{
+          required:"Agregue el Nombre del Producto",
+          minLength:{
+            value:3,
+            message:"El nombre debe tener al menos 3 caracteres"
+          },
+          maxLength:{
+            value:200,
+            message:"El nombre no puede tener más de 200 caracteres"
+          }
+        })}/>
+
+        </FloatingLabel>    
+      {errors.namedetallado&&<p className="errors mb-3">{errors.namedetallado.message}</p>}
       <FloatingLabel
         controlId="floatingTextarea"
         label="Agregue Imagen"
@@ -112,10 +140,13 @@ export const Modaleditar=({productoSeleccionado,idadmin,setCreando,creando})=>{
     aria-label="Seleccione la categoría del producto"
     {...register("categoria", { required: "Seleccione Categoria" })}
   >
-    <option value="">Seleccione la categoría del Producto</option>
-    <option value="Limpieza">Limpieza</option>
-    <option value="Viberes">Viberes</option>
-    <option value="Refrigerios">Refrigerios</option>
+   <option value="">Seleccione la categoría del Producto</option>
+    <option value="Baños y cocinas">Baños y cocinas</option>
+    <option value="Electrodomesticos">Electrodomesticos</option>
+    <option value="Textil y basar">Textil y basar</option>
+    <option value="Muebles">Muebles</option>
+    <option value="Herramientas">Herramientas</option>
+    <option value="Recomendados">Recomendados</option>
   </Form.Select>
 </FloatingLabel>
         {errors.categoria&&<p className='errors mb-3'>{errors.categoria.message}</p>}
@@ -129,12 +160,12 @@ export const Modaleditar=({productoSeleccionado,idadmin,setCreando,creando})=>{
           {...register("text",{
             required:"Agregue informacion del producto",
             minLength:{
-              value:3,
+              value:5,
               message:"la informacion debe tener mas de 5 caracteres"
             },
             maxLength:{
-              value:20,
-              message:"la informacion no puede tener  más de 20 caracteres"
+              value:500,
+              message:"la informacion no puede tener  más de 500 caracteres"
             }})}/>
       </FloatingLabel>
       {errors.informacion&&<p className="errors mb-3">{errors.informacion.message}</p>}

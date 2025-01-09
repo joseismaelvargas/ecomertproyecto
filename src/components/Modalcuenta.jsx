@@ -3,7 +3,7 @@ import { AiTwotoneCloseCircle } from "react-icons/ai";
 import { AiOutlineMail } from "react-icons/ai";
 import { MdAlternateEmail } from "react-icons/md";
 import { CiRainbow } from "react-icons/ci";
-
+import { useNavigate } from "react-router-dom";
 import { IoClose } from "react-icons/io5";
 import { useForm } from "react-hook-form"
 import { logear } from "./helpers/queries";
@@ -11,11 +11,12 @@ import React from 'react'
 export const Modalcuenta=({isOpen2,modalClose2})=>{
   const { register, handleSubmit ,formState:{errors},reset,setValue} = useForm();
 
-
+        const nav=useNavigate()
      const loGearse=(data)=>{
       
      if(logear(data)){
       alert("ESta logeado")
+      nav("/administrador")
      }else{
       alert("Error al logearse")
      }

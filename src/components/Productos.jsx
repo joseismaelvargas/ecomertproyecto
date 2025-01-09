@@ -7,24 +7,27 @@ import { URL_productos } from './helpers/queries'
 import "./css/Productos.css"
 import { Link } from 'react-router-dom';
 
-export const Productos=({carrito,setCarrito})=>{
+export const Productos=({carrito,setCarrito,title,categoria})=>{
      
      const [producto,setProducto]=useState([])
-       console.log(producto)
-    const apiProdcto=async()=>{
+
+    const apiProdcto=async(categoria)=>{
        try{
        const api=await(fetch(URL_productos))
        if(api.status===200){
+          
          const propiedades=await api.json()
-         setProducto(propiedades)
          
+         const categoriaecontrada=propiedades.filter((item)=>item.categoria===categoria)
+     
+         setProducto(categoriaecontrada)
        }
        }catch{
         console.log("error en la solicitud")
        }
       }
       useEffect(()=>{
-       apiProdcto()
+       apiProdcto(categoria)
       },[])
 
 
@@ -64,7 +67,7 @@ export const Productos=({carrito,setCarrito})=>{
         <>
         
         <section className="container-fluid">
-            <h2 className="nunito-uniquifier-title">Productos Recomendados</h2>
+            <h2 className="nunito-uniquifier-title">{title}</h2>
             <Swiper modules={[Autoplay,Navigation]} loop={true} navigation slidesPerView={4} 
               spaceBetween={1} 
               breakpoints={{
@@ -93,13 +96,13 @@ export const Productos=({carrito,setCarrito})=>{
                          <SwiperSlide key={productos.id} >
                             <div className="target" >
                             <Link to={`/carasteristica/${productos.id}`}>
-      <img className="img" src={productos.img} alt={productos.name} />
+                 <img className="img-producto" src={productos.img} alt={productos.name} />
     </Link>
                                 <hr />
                             <div className="target-info">
                                <h3 className="nunito-uniquifier">{productos.name}</h3>
-                             <p className="nunito-uniquifier-text">{productos.text}</p>
-                             <p className="nunito-uniquifier-precio">${productos.precio.toFixed(2)}</p> 
+                             <p className="nunito-uniquifier-text">{productos.namedetallado}</p>
+                             <p className="nunito-uniquifier-precio">${productos.precio.toFixed(2)}</p>  
                           
                             </div>
                            

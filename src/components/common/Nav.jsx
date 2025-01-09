@@ -4,8 +4,8 @@ import { CiSearch } from "react-icons/ci";
 import { FaCartShopping } from "react-icons/fa6";
 import { GrUserAdmin } from "react-icons/gr";
 import { Link,NavLink,useNavigate } from "react-router-dom";
-export const Nav=({modalOpen,modalOpen2,carrito})=>{
-  
+export const Nav=({modalOpen,modalOpen2,carrito,logeado,setlogeado})=>{
+   console.log(logeado)
     return(
         <>
      <nav className="navbar navbar-expand-lg bg-body-tertiary ">
@@ -42,8 +42,8 @@ export const Nav=({modalOpen,modalOpen2,carrito})=>{
         <li className="nav-item">
  
        
-      {/* <Link to={"/administrador"} className={"nunito-uniquifier-link"}></Link> */}
-      <Link to={"/administrador"}><GrUserAdmin className="iconoadmin" ></GrUserAdmin></Link>
+        {logeado!==""?  ( <><Link to={"/administrador"}><GrUserAdmin className="iconoadmin" ></GrUserAdmin></Link> </>):("")}
+   
           
           <form className="d-flex" role="search">
             <input
