@@ -27,7 +27,7 @@ export const Administrador=( )=>{
        const response=await fetch(URL_productos)
        if(response.status===200){
         let datos=await response.json()
-  
+           console.log(datos)
          setProductos(datos)
        }
    }catch{

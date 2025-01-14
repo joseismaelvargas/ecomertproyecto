@@ -15,7 +15,7 @@ export const Modaladministrador=({producto,setProductos})=>{
         e.preventDefault()
        
          let producto={
-              id:uuidv4(),
+            
               name:data.name,
               namedetallado:data.namedetallado,
               img:data.img,
