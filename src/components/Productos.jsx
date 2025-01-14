@@ -39,9 +39,7 @@ export const Productos=({carrito,setCarrito,title,categoria})=>{
             console.error("Producto no encontrado");
             return;
         }
-    
-      
-        const productoEnCarrito = carrito.find((item) => item.id === id);
+     const productoEnCarrito = carrito.find((item) => item.id === id);
     
         let carritonew;
     
@@ -53,14 +51,9 @@ export const Productos=({carrito,setCarrito,title,categoria})=>{
         } else {
         
             carritonew = [...carrito, { ...productos, cantidad: 1 }];
-        }
-    
-        
+        } 
         setCarrito(carritonew);
- 
-    
-     
-      
+
     };
     
     return(
