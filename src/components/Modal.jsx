@@ -15,7 +15,7 @@ export const Modal=({isOpen,modalClose,carrito,setCarrito})=>{
    
     const aumentarCantidad = (id) => {
           const nuevoCarrito = carrito.map((prop) => {
-            if(prop.id===id){
+            if(prop._id===id){
               return{...prop,
                   cantidad:prop.cantidad+1,
                   
@@ -30,7 +30,7 @@ export const Modal=({isOpen,modalClose,carrito,setCarrito})=>{
       const disminuirCantidad=(id)=>{
         const nuevoCarrito=carrito.map((prop=>{
           
-          if(prop.id===id){
+          if(prop._id===id){
             if(prop.cantidad<=1){
               return prop
             }else{
@@ -46,7 +46,7 @@ export const Modal=({isOpen,modalClose,carrito,setCarrito})=>{
 
 
     const eliminarProducto=(id)=>{
-      const nuevoCarrito=carrito.filter((prop)=>prop.id!==id)
+      const nuevoCarrito=carrito.filter((prop)=>prop._id!==id)
       setCarrito([...nuevoCarrito])
     }
     const Totalpagar=()=>{
@@ -70,24 +70,24 @@ export const Modal=({isOpen,modalClose,carrito,setCarrito})=>{
   {carrito.length > 0 ? (
     <>
       {carrito.map((prop) => (
-        <div key={prop.id} className="containerCarrito">
+        <div key={prop._id} className="containerCarrito">
           <img className="imgcarrito" src={prop.img} alt={`Imagen de ${prop.nombre}`} />
           <p className="nunito-uniquifier-preciocarrito">
             ${(prop.precio * prop.cantidad).toFixed(2)}
           </p>
           <CgMathMinus
-            onClick={() => disminuirCantidad(prop.id)}
+            onClick={() => disminuirCantidad(prop._id)}
             className="menos"
             aria-label="Disminuir cantidad"
           />
           <p className="nunito-uniquifier-preciocarrito">{prop.cantidad}</p>
           <BiPlus
-            onClick={() => aumentarCantidad(prop.id)}
+            onClick={() => aumentarCantidad(prop._id)}
             className="pluz"
             aria-label="Aumentar cantidad"
           />
           <FiX
-            onClick={() => eliminarProducto(prop.id)}
+            onClick={() => eliminarProducto(prop._id)}
             className="fix"
             aria-label="Eliminar producto"
           />

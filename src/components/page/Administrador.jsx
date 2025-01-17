@@ -51,19 +51,20 @@ export const Administrador=( )=>{
           }).then((result) => {
             if (result.isConfirmed) {
                 borrarProductoadmin(id)
+              
               Swal.fire({
                 title: "Eliminado",
                 text: "El producto fue eliminado.",
                 icon: "success"
               });
-
+       
             }
           });
       }
      const borrarProductoadmin=async(id)=>{
          try{
             const response=await fetch(borrarProducto(id))
-            
+            console.log(response)
             if(response.status===200){
                 let actualizar=await Api()
                 if(actualizar.status===200){
@@ -79,7 +80,7 @@ export const Administrador=( )=>{
     const editarProducto= (id)=>{
       setCreando(false)
        setid(id)
-        let productoencontrado=productos.find((element)=>element.id===id)
+        let productoencontrado=productos.find((element)=>element._id===id)
          if(productoencontrado){
           setProductoSeleccionado(productoencontrado)
          
@@ -112,14 +113,14 @@ export const Administrador=( )=>{
                     {
                         productos.map((item)=>
                           <tr key={item.id}>
-                        <td>{item.id}</td>
+                        <td>{item._id}</td>
                         <td>{item.name}</td>
                         <td>{item.categoria}</td>
                         <td>${item.precio.toFixed(2)}</td>
                         <td>
-                           <button className="btn btn-info button-opciones"  data-bs-toggle="modal" data-bs-target="#miModaledit" onClick={()=>editarProducto(item.id)}><FaRegEdit></FaRegEdit></button> 
-                           <button className="btn btn-danger button-opciones" onClick={()=>borrar(item.id)}><MdDelete></MdDelete></button>
-                           <Link to={`/carasteristica/${item.id}`} className=" btn btn-warning button-opciones">
+                           <button className="btn btn-info button-opciones"  data-bs-toggle="modal" data-bs-target="#miModaledit" onClick={()=>editarProducto(item._id)}><FaRegEdit></FaRegEdit></button> 
+                           <button className="btn btn-danger button-opciones" onClick={()=>borrar(item._id)}><MdDelete></MdDelete></button>
+                           <Link to={`/carasteristica/${item._id}`} className=" btn btn-warning button-opciones">
                             <FaRegEye></FaRegEye></Link>
                         </td>
                         </tr>)

@@ -16,7 +16,7 @@ const Api= async (id)=>{
        let response=await fetch(URL_productos)
        if(response.status===200){
           let datos=await response.json()
-          let buscarproducto=datos.find((element)=>element.id===id)
+          let buscarproducto=datos.find((element)=>element._id===id)
      
           if(buscarproducto){
             setProductos(buscarproducto)

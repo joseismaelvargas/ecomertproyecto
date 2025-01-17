@@ -15,21 +15,20 @@ export const Modaladministrador=({producto,setProductos})=>{
         e.preventDefault()
        
          let producto={
-            
+              
               name:data.name,
               namedetallado:data.namedetallado,
               img:data.img,
-              text:data.text,
-              precio:Number(data.precio),
-              categoria:data.categoria,
-              
-              cantidad:1
+             categoria:data.categoria, 
+             text:data.text,
+             precio:Number(data.precio),
+             cantidad:1
               
          }
          
          agregarProductos(producto)
      
-        location.reload()
+        // location.reload()
         }
 
         
@@ -41,7 +40,7 @@ export const Modaladministrador=({producto,setProductos})=>{
    const agregarProductos=async(producto)=>{
          try{
            const response=await agregarProducto(producto) 
-           console.log(actualizar)
+           console.log(response)
            if(response.status===200){
             let actualizar=await response.json()
            

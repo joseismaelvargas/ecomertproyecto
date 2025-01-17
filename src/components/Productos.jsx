@@ -10,10 +10,11 @@ import { Link } from 'react-router-dom';
 export const Productos=({carrito,setCarrito,title,categoria})=>{
      
      const [producto,setProducto]=useState([])
-
+       console.log(producto)
     const apiProdcto=async(categoria)=>{
        try{
        const api=await(fetch(URL_productos))
+       console.log(api)
        if(api.status===200){
           
          const propiedades=await api.json()
@@ -33,20 +34,20 @@ export const Productos=({carrito,setCarrito,title,categoria})=>{
 
     const Agregar=(id)=>{ 
       
-        const productos = producto.find((producto) => producto.id === id);
+        const productos = producto.find((producto) => producto._id === id);
     
         if (!productos) {
             console.error("Producto no encontrado");
             return;
         }
-     const productoEnCarrito = carrito.find((item) => item.id === id);
+     const productoEnCarrito = carrito.find((item) => item._id === id);
     
         let carritonew;
     
         if (productoEnCarrito) {
           
             carritonew = carrito.map((item) =>
-                item.id === id ? { ...item, cantidad: item.cantidad + 1 } : item
+                item._id === id ? { ...item, cantidad: item.cantidad + 1 } : item
             );
         } else {
         
@@ -86,9 +87,9 @@ export const Productos=({carrito,setCarrito,title,categoria})=>{
                
                 {
                     producto.map((productos)=>
-                         <SwiperSlide key={productos.id} >
+                         <SwiperSlide key={productos._id} >
                             <div className="target" >
-                            <Link to={`/carasteristica/${productos.id}`}>
+                            <Link to={`/carasteristica/${productos._id}`}>
                  <img className="img-producto" src={productos.img} alt={productos.name} />
     </Link>
                                 <hr />
@@ -99,7 +100,7 @@ export const Productos=({carrito,setCarrito,title,categoria})=>{
                           
                             </div>
                            
-                               <button className="nunito-uniquifier-boton" onClick={()=>Agregar(productos.id)} >Agregar al carrito</button>
+                               <button className="nunito-uniquifier-boton" onClick={()=>Agregar(productos._id)} >Agregar al carrito</button>
                                
                             </div>
                        </SwiperSlide>

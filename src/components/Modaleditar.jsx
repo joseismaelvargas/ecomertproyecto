@@ -10,7 +10,8 @@ import { CiHospital1 } from 'react-icons/ci';
 export const Modaleditar=({productoSeleccionado,idadmin,setCreando,creando})=>{
     const {register,handleSubmit,formState:{errors},reset,setValue}=useForm()
     let id=idadmin
-    
+    console.log(productoSeleccionado)
+    console.log(idadmin)
 
 
     useEffect(()=>{

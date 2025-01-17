@@ -6,7 +6,7 @@ export const agregarProducto = async (producto) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(producto), // Ahora está al mismo nivel que headers
+      body: JSON.stringify(producto), 
     });
     return response;
   } catch (error) {
