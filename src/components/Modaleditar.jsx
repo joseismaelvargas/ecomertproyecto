@@ -7,11 +7,13 @@ import { agregarProducto } from './helpers/queries';
 import { editarProducto } from './helpers/queries';
 import { MdAddBusiness } from "react-icons/md";
 import { CiHospital1 } from 'react-icons/ci';
-export const Modaleditar=({productoSeleccionado,idadmin,setCreando,creando})=>{
+import { useProductos } from './helpers/ProductosContext';
+export const Modaleditar=({productoSeleccionado,idadmin,setCreando,creando,productos,setProductos})=>{
     const {register,handleSubmit,formState:{errors},reset,setValue}=useForm()
     let id=idadmin
     console.log(productoSeleccionado)
     console.log(idadmin)
+
 
 
     useEffect(()=>{
@@ -41,13 +43,14 @@ export const Modaleditar=({productoSeleccionado,idadmin,setCreando,creando})=>{
        }
          
         editarproductoadmin(producto,id)
-      location.reload()
+      // location.reload()
     }
     const editarproductoadmin=async(producto,id)=>{
         try{
            let response=await(editarProducto(producto,id))
        console.log(response)
        if(response.status===200){
+        const actualizar=await response.json()
         Swal.fire({
             position: "top-center",
             icon: "success",
@@ -55,7 +58,7 @@ export const Modaleditar=({productoSeleccionado,idadmin,setCreando,creando})=>{
             showConfirmButton: false,
             timer: 1500
           });
-             reset()
+           setProductos(actualizar)
     
              
        } 

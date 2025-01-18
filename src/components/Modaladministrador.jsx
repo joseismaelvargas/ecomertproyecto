@@ -4,12 +4,12 @@ import Form from 'react-bootstrap/Form';
 import { useForm } from 'react-hook-form';
 import {v4 as uuidv4, v4}from 'uuid'
 import { agregarProducto } from './helpers/queries';
-import { editarProducto } from './helpers/queries';
+
 import { MdAddBusiness } from "react-icons/md";
 
-export const Modaladministrador=({producto,setProductos})=>{
+export const Modaladministrador=({productos,setProductos})=>{
     const {register,handleSubmit,formState:{errors},reset,setValue}=useForm()
-
+    console.log(productos)
     
     const agregar=(data,e)=>{
         e.preventDefault()
@@ -28,7 +28,7 @@ export const Modaladministrador=({producto,setProductos})=>{
          
          agregarProductos(producto)
      
-        // location.reload()
+     
         }
 
         
@@ -41,11 +41,15 @@ export const Modaladministrador=({producto,setProductos})=>{
          try{
            const response=await agregarProducto(producto) 
            console.log(response)
-           if(response.status===200){
+           console.log(producto)
+           if(response.status===201){
             let actualizar=await response.json()
-           
           
-
+            setProductos(actualizar)
+          
+           }else{
+           alert("error al agregar")
+    
            }
             
          }catch{
@@ -57,7 +61,7 @@ export const Modaladministrador=({producto,setProductos})=>{
         <>
         <div>
    
-¿
+
              <button className="button-admin btn btn-Light" data-bs-toggle="modal" data-bs-target="#miModal"  ><MdAddBusiness></MdAddBusiness></button>
     
 

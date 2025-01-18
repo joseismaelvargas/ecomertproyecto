@@ -9,8 +9,10 @@ import { borrarProducto } from "../helpers/queries";
 import { editarProducto } from "../helpers/queries";
 import { Modaleditar } from "../Modaleditar";
 import { Link,NavLink,useNavigate } from "react-router-dom";
+import { useProductos } from "../helpers/ProductosContext.jsx";
 export const Administrador=( )=>{
-    const [productos,setProductos]=useState([])
+    // const {productos,setProductos}=useProductos();
+      const [productos,setProductos]=useState([])
     const [creando,setCreando]=useState(true)
     const [id,setid]=useState([])
     const [productoSeleccionado, setProductoSeleccionado] = useState({
@@ -25,10 +27,15 @@ export const Administrador=( )=>{
     const Api=async()=>{
    try{
        const response=await fetch(URL_productos)
-       if(response.status===200){
+       if(response.ok){
         let datos=await response.json()
-           console.log(datos)
-         setProductos(datos)
+        if (Array.isArray(datos)) {
+          console.log('Datos obtenidos:', datos);
+          setProductos(datos);
+      } else {
+          console.error('La respuesta no es un array:', datos);
+      }  console.log(datos)
+        
        }
    }catch{
     console.log("Ocurrio un error con la petision")
@@ -63,14 +70,15 @@ export const Administrador=( )=>{
       }
      const borrarProductoadmin=async(id)=>{
          try{
-            const response=await fetch(borrarProducto(id))
+            const response=await borrarProducto
             console.log(response)
             if(response.status===200){
-                let actualizar=await Api()
-                if(actualizar.status===200){
-                let datos=await actualizar.json()
-                setProductos(datos)
-            }
+              setProductos(productos.filter((producto) => producto._id !== id));
+              Swal.fire({
+                  title: "Eliminado",
+                  text: "El producto fue eliminado.",
+                  icon: "success"
+              });
             }
             
          }catch{
@@ -86,9 +94,7 @@ export const Administrador=( )=>{
          
          }
      }
-     const verProducto=(id)=>{
-     window.location.href='/page/detalles.html?id='+id
-     }
+    
     return(
         <>
        
@@ -96,7 +102,7 @@ export const Administrador=( )=>{
      
        <h2 className="text-center">Administrador de la Pagina</h2>
        <Modaladministrador productos={productos} setProductos={setProductos} ></Modaladministrador>
-       <Modaleditar productoSeleccionado={productoSeleccionado} idadmin={id} productos={productos} setCreando={setCreando} creando={creando}></Modaleditar>
+       <Modaleditar productoSeleccionado={productoSeleccionado} idadmin={id} productos={productos} setProductos={setProductos} setCreando={setCreando} creando={creando}></Modaleditar>
 
           <div className="nunito-uniquifier-table responsive mt-5">
             <table className="table table-hover table-bordered border-light text-center">
@@ -112,7 +118,7 @@ export const Administrador=( )=>{
                 <tbody>
                     {
                         productos.map((item)=>
-                          <tr key={item.id}>
+                          <tr key={item._id}>
                         <td>{item._id}</td>
                         <td>{item.name}</td>
                         <td>{item.categoria}</td>

@@ -8,6 +8,7 @@ import { Footer } from "./components/common/footer.jsx";
 import { Rutaadmin } from "./components/router/Rutaadmin.jsx";
 import ProtejerRuta from "./components/router/ProtejerRuta.jsx";
 import ScrollToTop from "./components/helpers/ScrollToTop.jsx";
+
 function App() {
   const [carrito, setCarrito] = useState([]);
   const usuario=JSON.parse(sessionStorage.getItem("ecomert"))||[]

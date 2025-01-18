@@ -1,4 +1,7 @@
 export const URL_productos=import.meta.env.VITE_API_PRODUCTOS
+
+
+
 export const agregarProducto = async (producto) => {
   try {
     const response = await fetch(URL_productos, {
@@ -6,14 +9,17 @@ export const agregarProducto = async (producto) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(producto), 
+      body: JSON.stringify(producto),
     });
+    if (!response.ok) {
+      const errorData = await response.json();
+      console.error("Error en el servidor:", errorData);
+    }
     return response;
   } catch (error) {
-    console.log("Error al crear un Producto:", error);
+    console.error("Error al crear un Producto:", error);
   }
 };
-
 
 
 export const borrarProducto=async(id)=>{

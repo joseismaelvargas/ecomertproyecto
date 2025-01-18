@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 export const Productos=({carrito,setCarrito,title,categoria})=>{
      
      const [producto,setProducto]=useState([])
-       console.log(producto)
+    
     const apiProdcto=async(categoria)=>{
        try{
        const api=await(fetch(URL_productos))
