@@ -4,15 +4,15 @@ import { FaRegEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { FaRegEye } from "react-icons/fa";
 import {  URL_productos } from "../helpers/queries";
-import { useEffect, useState } from "react";
+import { useState,useEffect } from "react";
 import { borrarProducto } from "../helpers/queries";
 import { editarProducto } from "../helpers/queries";
 import { Modaleditar } from "../Modaleditar";
 import { Link,NavLink,useNavigate } from "react-router-dom";
-import { useProductos } from "../helpers/ProductosContext.jsx";
+
 export const Administrador=( )=>{
-    // const {productos,setProductos}=useProductos();
-      const [productos,setProductos]=useState([])
+ 
+      const [productosadmin,setProductosadmin]=useState([])
     const [creando,setCreando]=useState(true)
     const [id,setid]=useState([])
     const [productoSeleccionado, setProductoSeleccionado] = useState({
@@ -31,7 +31,7 @@ export const Administrador=( )=>{
         let datos=await response.json()
         if (Array.isArray(datos)) {
           console.log('Datos obtenidos:', datos);
-          setProductos(datos);
+          setProductosadmin(datos);
       } else {
           console.error('La respuesta no es un array:', datos);
       }  console.log(datos)
@@ -58,22 +58,17 @@ export const Administrador=( )=>{
           }).then((result) => {
             if (result.isConfirmed) {
                 borrarProductoadmin(id)
-              
-              Swal.fire({
-                title: "Eliminado",
-                text: "El producto fue eliminado.",
-                icon: "success"
-              });
+             
        
             }
           });
       }
      const borrarProductoadmin=async(id)=>{
          try{
-            const response=await borrarProducto
+            const response=await borrarProducto(id)
             console.log(response)
             if(response.status===200){
-              setProductos(productos.filter((producto) => producto._id !== id));
+              setProductosadmin(productosadmin.filter((producto) => producto._id !== id));
               Swal.fire({
                   title: "Eliminado",
                   text: "El producto fue eliminado.",
@@ -88,7 +83,7 @@ export const Administrador=( )=>{
     const editarProducto= (id)=>{
       setCreando(false)
        setid(id)
-        let productoencontrado=productos.find((element)=>element._id===id)
+        let productoencontrado=productosadmin.find((element)=>element._id===id)
          if(productoencontrado){
           setProductoSeleccionado(productoencontrado)
          
@@ -101,8 +96,8 @@ export const Administrador=( )=>{
         <section className=" Administrador" > 
      
        <h2 className="text-center">Administrador de la Pagina</h2>
-       <Modaladministrador productos={productos} setProductos={setProductos} ></Modaladministrador>
-       <Modaleditar productoSeleccionado={productoSeleccionado} idadmin={id} productos={productos} setProductos={setProductos} setCreando={setCreando} creando={creando}></Modaleditar>
+       <Modaladministrador productosadmin={productosadmin} setProductosadmin={setProductosadmin} ></Modaladministrador>
+       {/* <Modaleditar productoSeleccionado={productoSeleccionado} idadmin={id} productos={productos} setProductos={setProductos} setCreando={setCreando} creando={creando}></Modaleditar> */}
 
           <div className="nunito-uniquifier-table responsive mt-5">
             <table className="table table-hover table-bordered border-light text-center">
@@ -117,7 +112,7 @@ export const Administrador=( )=>{
                 </thead>
                 <tbody>
                     {
-                        productos.map((item)=>
+                        productosadmin.map((item)=>
                           <tr key={item._id}>
                         <td>{item._id}</td>
                         <td>{item.name}</td>

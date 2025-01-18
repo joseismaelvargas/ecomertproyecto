@@ -7,9 +7,9 @@ import { agregarProducto } from './helpers/queries';
 
 import { MdAddBusiness } from "react-icons/md";
 
-export const Modaladministrador=({productos,setProductos})=>{
+export const Modaladministrador=({productosadmin,setProductosadmin})=>{
     const {register,handleSubmit,formState:{errors},reset,setValue}=useForm()
-    console.log(productos)
+   
     
     const agregar=(data,e)=>{
         e.preventDefault()
@@ -45,7 +45,7 @@ export const Modaladministrador=({productos,setProductos})=>{
            if(response.status===201){
             let actualizar=await response.json()
           
-            setProductos(actualizar)
+            setProductosadmin(actualizar)
           
            }else{
            alert("error al agregar")
