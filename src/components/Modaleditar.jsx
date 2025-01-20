@@ -43,7 +43,7 @@ export const Modaleditar=({productoSeleccionado,idadmin,setCreando,creando,produ
        }
          
         editarproductoadmin(producto,id)
-      // location.reload()
+   
     }
     const editarproductoadmin=async(producto,id)=>{
         try{
@@ -56,9 +56,11 @@ export const Modaleditar=({productoSeleccionado,idadmin,setCreando,creando,produ
             icon: "success",
             title: "Producto Editado",
             showConfirmButton: false,
-            timer: 1500
+            timer: 500
           });
-           setProductos(actualizar)
+          if(actualizar){
+            location.reload()
+          }
     
              
        } 

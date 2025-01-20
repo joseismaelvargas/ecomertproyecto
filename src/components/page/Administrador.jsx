@@ -97,7 +97,7 @@ export const Administrador=( )=>{
      
        <h2 className="text-center">Administrador de la Pagina</h2>
        <Modaladministrador productosadmin={productosadmin} setProductosadmin={setProductosadmin} ></Modaladministrador>
-       {/* <Modaleditar productoSeleccionado={productoSeleccionado} idadmin={id} productos={productos} setProductos={setProductos} setCreando={setCreando} creando={creando}></Modaleditar> */}
+       <Modaleditar productoSeleccionado={productoSeleccionado} idadmin={id}  setCreando={setCreando} creando={creando}></Modaleditar>
 
           <div className="nunito-uniquifier-table responsive mt-5">
             <table className="table table-hover table-bordered border-light text-center">

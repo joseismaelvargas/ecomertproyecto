@@ -44,8 +44,17 @@ export const Modaladministrador=({productosadmin,setProductosadmin})=>{
            console.log(producto)
            if(response.status===201){
             let actualizar=await response.json()
-          
-            setProductosadmin(actualizar)
+            Swal.fire({
+              position: "top-center",
+              icon: "success",
+              title: "Producto Agregado",
+              showConfirmButton: false,
+              timer: 500
+            });
+           if(actualizar){
+               location.reload()
+           }
+         
           
            }else{
            alert("error al agregar")
