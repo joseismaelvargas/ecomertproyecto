@@ -120,14 +120,30 @@ z-index: 1000;
 @media only screen and (max-width: 500px) {
  
 .logoeocomert{
-  width: 120px;
-  height: 100px;
+  width: 140px;
+  height: 80px;
+  margin: 0px -60px;
 }
 .inputnav{
   width: 320px;
   margin: 0px 0px;
-}
+}/*
 .navbar{
   position: static;
+} */
+.iconoadmin{
+
+  position: fixed;
+  margin: 0px 0px;
+  font-size: 60px;
 }
+/* .icono{
+  margin: 0px 3px;
+  font-size: 60px;
+} */
+/* .icocuenta{
+  margin: 0px -300px;
+  position: fixed;
+} */
+
 }

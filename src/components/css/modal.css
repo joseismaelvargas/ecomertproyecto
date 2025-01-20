@@ -84,6 +84,25 @@
   @media only screen and (max-width: 500px) {
    
     .modal{
-      margin: 0px 5px;
+      margin: 0px 0px;
     }
+    .modalcarrito{
+      background-color: rgb(255, 249, 249);
+      color: rgb(73, 71, 71);
+      height: 100%;
+      width: 100%;
+      display: none;
+      flex-direction: column;
+      z-index: 2000;
+      top: 0px;
+      margin: 0px 50px;
+      left: 0px;
+      border-radius: 20px;
+      border: solid rgb(112, 109, 109) 2px;
+    
+      position:fixed;
+      animation: slideInStretch 0.2s ease-out;
+      overflow-y:auto; 
+      
+  }
  }

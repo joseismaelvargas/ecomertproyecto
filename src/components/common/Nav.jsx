@@ -22,7 +22,13 @@ export const Nav=({modalOpen,modalOpen2,carrito,logeado,setlogeado})=>{
         <BiUser  className="icono" onClick={modalOpen2}/>
          <FaCartShopping  className="icono"onClick={modalOpen} />
          {carrito.length>0?<span className="nunito-uniquifier-span">{carrito.length}</span>:<span></span>}     
-    
+        {logeado.length > 0 ? (
+  <Link to={"/administrador"}>
+    <GrUserAdmin className="iconoadmin" />
+  </Link>
+) : (
+  ""
+)} 
          </div>  
              
     <button
@@ -40,13 +46,7 @@ export const Nav=({modalOpen,modalOpen2,carrito,logeado,setlogeado})=>{
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
-        {logeado.length > 0 ? (
-  <Link to={"/administrador"}>
-    <GrUserAdmin className="iconoadmin" />
-  </Link>
-) : (
-  ""
-)} 
+    
                
           <form className="d-flex" role="search">
             <input
