@@ -59,7 +59,7 @@ export const Modaleditar=({productoSeleccionado,idadmin,setCreando,creando,produ
             timer: 500
           });
           if(actualizar){
-            location.reload()
+            // location.reload()
           }
     
              
