@@ -47,7 +47,7 @@ export const Modaleditar=({productoSeleccionado,idadmin,setCreando,creando,produ
     const editarproductoadmin=async(producto,id)=>{
         try{
            let response=await(editarProducto(producto,id))
-       console.log(response)
+      
        if(response.status===200){
         const actualizar=await response.json()
         Swal.fire({
