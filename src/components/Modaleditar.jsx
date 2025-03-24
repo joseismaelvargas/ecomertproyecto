@@ -11,8 +11,7 @@ import { useProductos } from './helpers/ProductosContext';
 export const Modaleditar=({productoSeleccionado,idadmin,setCreando,creando,productos,setProductos})=>{
     const {register,handleSubmit,formState:{errors},reset,setValue}=useForm()
     let id=idadmin
-    console.log(productoSeleccionado)
-    console.log(idadmin)
+
 
 
 
