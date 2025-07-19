@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import { useForm } from 'react-hook-form';
 import {v4 as uuidv4, v4}from 'uuid'
 import { agregarProducto } from './helpers/queries';
-
+import Swal from "swiper"
 import { MdAddBusiness } from "react-icons/md";
 
 export const Modaladministrador=({productosadmin,setProductosadmin})=>{
@@ -32,13 +32,7 @@ export const Modaladministrador=({productosadmin,setProductosadmin})=>{
 
     if (response.status === 201) {
       const result = await response.json();
-      // Swal.fire({
-      //   position: "top-center",
-      //   icon: "success",
-      //   title: "Producto Agregado",
-      //   showConfirmButton: false,
-      //   timer: 1000
-      // });
+      
       location.reload();
     } else {
        const errorData = await response.json();
