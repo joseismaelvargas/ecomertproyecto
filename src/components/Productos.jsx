@@ -90,7 +90,8 @@ export const Productos=({carrito,setCarrito,title,categoria})=>{
                          <SwiperSlide key={productos._id} >
                             <div className="target" >
                             <Link to={`/carasteristica/${productos._id}`}>
-                 <img className="img-producto" src={productos.img} alt={productos.name} />
+                 <img className="img-producto" src={productos.imageProduct
+} alt={productos.name} />
     </Link>
                                 <hr />
                             <div className="target-info">

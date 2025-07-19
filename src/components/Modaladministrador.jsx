@@ -11,23 +11,43 @@ export const Modaladministrador=({productosadmin,setProductosadmin})=>{
     const {register,handleSubmit,formState:{errors},reset,setValue}=useForm()
    
     
-    const agregar=(data,e)=>{
+    const agregar=async(data,e)=>{
         e.preventDefault()
        
-         let producto={
-              
-              name:data.name,
-              namedetallado:data.namedetallado,
-              img:data.img,
-             categoria:data.categoria, 
-             text:data.text,
-             precio:Number(data.precio),
-             cantidad:1
-              
-         }
+        const formData = new FormData();
+
+  formData.append("name", data.name);
+  formData.append("namedetallado", data.namedetallado);
+  formData.append("imageProduct", data.img[0]); // img es un array de archivos
+  formData.append("categoria", data.categoria);
+  formData.append("text", data.text);
+  formData.append("precio", data.precio);
+  formData.append("cantidad", "1");
+  
+    try {
+    const response = await fetch("https://miecomert-production.up.railway.app/api/producto", {
+      method: "POST",
+      body: formData,
+    });
+
+    if (response.status === 201) {
+      const result = await response.json();
+      // Swal.fire({
+      //   position: "top-center",
+      //   icon: "success",
+      //   title: "Producto Agregado",
+      //   showConfirmButton: false,
+      //   timer: 1000
+      // });
+      location.reload();
+    } else {
+       const errorData = await response.json();
+      console.error("Error en el servidor:", errorData);
+    }
+  } catch (error) {
+    console.error("Error al agregar producto", error);
+  }
          
-         agregarProductos(producto)
-     
      
         }
 
@@ -83,7 +103,7 @@ export const Modaladministrador=({productosadmin,setProductosadmin})=>{
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
             </div>
             <div className="modal-body">
-            <Form  onSubmit={handleSubmit(agregar)} >
+            <Form  onSubmit={handleSubmit(agregar)} encType="multipart/form-data">
       <FloatingLabel
         controlId="floatingTextarea"
         label="Nombre del Producto"
@@ -129,15 +149,16 @@ export const Modaladministrador=({productosadmin,setProductosadmin})=>{
 
         </FloatingLabel>    
       {errors.namedetallado&&<p className="errors mb-3">{errors.namedetallado.message}</p>}
-      <FloatingLabel
-        controlId="floatingTextarea"
-        label="Agregue Imagen"
-        className="mb-3"
-      >
-        <Form.Control as="textarea" placeholder="Leave a comment here"   {...register("img",{
-          required:"Agregue la imagen del Producto",
-         })}/>
-      </FloatingLabel>
+        <FloatingLabel controlId="floatingTextarea" label="Agregue Imagen" className="mb-3">
+    <input
+      type="file"
+      name="imageProduct"
+      id="imageProduct"
+      {...register("img", {
+        required: "Agregue la imagen del Producto",
+      })}
+    />
+  </FloatingLabel>
       {errors.img&&<p className="errors mb-3">{errors.img.message}</p>}
       <FloatingLabel
   controlId="floatingSelectGrid"

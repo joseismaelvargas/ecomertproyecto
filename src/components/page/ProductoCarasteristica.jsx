@@ -63,7 +63,8 @@ const Api= async (id)=>{
             
           <div className=' producto-div '>
             <div className='container-producto'>
-                 <img className='img' src={productos.img} alt="imgproducto" />
+                 <img className='img' src={productos.imageProduct
+} alt="imgproducto" />
           
                 <p className="d-inline-flex gap-1">
         
