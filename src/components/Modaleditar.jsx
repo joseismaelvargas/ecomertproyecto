@@ -8,6 +8,8 @@ import { editarProducto } from './helpers/queries';
 import { MdAddBusiness } from "react-icons/md";
 import { CiHospital1 } from 'react-icons/ci';
 import { useProductos } from './helpers/ProductosContext';
+import { IoIosAlert } from "react-icons/io";
+import Swal from 'sweetalert2';
 export const Modaleditar=({productoSeleccionado,idadmin,setCreando,creando,productos,setProductos})=>{
     const {register,handleSubmit,formState:{errors},reset,setValue}=useForm()
     let id=idadmin
@@ -18,7 +20,7 @@ export const Modaleditar=({productoSeleccionado,idadmin,setCreando,creando,produ
     useEffect(()=>{
       if(productoSeleccionado){
         setValue('name',productoSeleccionado.name)
-        setValue('img',productoSeleccionado.img),
+        setValue('img',productoSeleccionado.imageProducto),
         setValue('categoria',productoSeleccionado.categoria),
         setValue('text',productoSeleccionado.text)
         setValue('precio',productoSeleccionado.precio)
@@ -29,19 +31,19 @@ export const Modaleditar=({productoSeleccionado,idadmin,setCreando,creando,produ
     const editar=(data,e)=>{
         e.preventDefault()
        
-        let producto={
-            
-            id:productoSeleccionado.id,
-            name:data.name,
-            namedetallado:data.namedetallado,
-            img:data.img,
-            text:data.text,
-            precio:Number(data.precio),
-            categoria:data.categoria,
-            cantidad:productoSeleccionado.cantidad
-       }
+       const formData = new FormData();
+
+  formData.append("name", data.name);
+  formData.append("namedetallado", data.namedetallado);
+if (data.img && data.img.length > 0) {
+  formData.append("imageProduct", data.img[0]);
+}
+  formData.append("categoria", data.categoria);
+  formData.append("text", data.text);
+  formData.append("precio", data.precio);
+  formData.append("cantidad", "1");
          
-        editarproductoadmin(producto,id)
+        editarproductoadmin(formData,id)
    
     }
     const editarproductoadmin=async(producto,id)=>{
@@ -50,6 +52,7 @@ export const Modaleditar=({productoSeleccionado,idadmin,setCreando,creando,produ
       
        if(response.status===200){
         const actualizar=await response.json()
+        console.log(actualizar)
         Swal.fire({
             position: "top-center",
             icon: "success",
@@ -77,19 +80,18 @@ export const Modaleditar=({productoSeleccionado,idadmin,setCreando,creando,produ
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
             </div>
             <div className="modal-body">
-            <Form  onSubmit={handleSubmit(editar)} >
+         <Form  onSubmit={handleSubmit(editar)} encType="multipart/form-data">
       <FloatingLabel
         controlId="floatingTextarea"
-        label="Nombre del Producto"
+        label="Nombre del producto"
         className="mb-3"
       >
         <Form.Control as="textarea" placeholder="Leave a comment here"
-          
         
         {...register("name",{
           required:"Agregue el Nombre del Producto",
           minLength:{
-            value:3,
+            value:5,
             message:"El nombre debe tener al menos 3 caracteres"
           },
           maxLength:{
@@ -97,10 +99,11 @@ export const Modaleditar=({productoSeleccionado,idadmin,setCreando,creando,produ
             message:"El nombre no puede tener más de 30 caracteres"
           }
         })}/>
-       
         
       </FloatingLabel>
-          {errors.name&&<p className="errors mb-3">{errors.name.message}</p>}
+          {errors.name&&<p className="errors mb-3"><IoIosAlert />
+{errors.name.message}</p>}
+
 
           <FloatingLabel
         controlId="floatingTextarea"
@@ -123,42 +126,58 @@ export const Modaleditar=({productoSeleccionado,idadmin,setCreando,creando,produ
         })}/>
 
         </FloatingLabel>    
-      {errors.namedetallado&&<p className="errors mb-3">{errors.namedetallado.message}</p>}
-      <FloatingLabel
-        controlId="floatingTextarea"
-        label="Agregue Imagen"
-        className="mb-3"
-      >
-        <Form.Control as="textarea" placeholder="Leave a comment here"  {...register("img",{
-          required:"Agregue la imagen del Producto",
-          
-         })}/>
-      </FloatingLabel>
-      {errors.img&&<p className="errors mb-3">{errors.img.message}</p>}
+      {errors.namedetallado&&<p className="errors mb-3"><IoIosAlert />{errors.namedetallado.message}</p>}
+        <FloatingLabel controlId="floatingTextarea" className="mb-3">
+   
+   <Form.Group controlId="formFile" className="mb-3">
+  <Form.Label>Imagen del producto</Form.Label>
+
+ 
+  {productoSeleccionado?.imageProduct && (
+    <div className="mb-2">
+      <img
+        src={productoSeleccionado.imageProduct.startsWith("http") 
+              ? productoSeleccionado.imageProduct 
+              : `/uploads/${productoSeleccionado.imageProduct}`} // ajusta ruta si es local
+        alt="Imagen actual"
+        style={{ maxWidth: "30%", height: "auto", borderRadius: "8px" }}
+      />
+ 
+    </div>
+  )}
+
+  <Form.Label>Cambiar Imagen del Producto</Form.Label>
+  <Form.Control
+    type="file"
+    name="imageProduct"
+    id="imageProduct"
+    {...register("img", {})}
+  />
+</Form.Group>
+  </FloatingLabel>
+
       <FloatingLabel
   controlId="floatingSelectGrid"
           label="Categoria de Producto"
           className='mb-3'
 >
   <Form.Select
- 
     aria-label="Seleccione la categoría del producto"
     {...register("categoria", { required: "Seleccione Categoria" })}
   >
-   <option value="">Seleccione la categoría del Producto</option>
+    <option value="">Seleccione la categoría del producto</option>
     <option value="Baños y cocinas">Baños y cocinas</option>
     <option value="Electrodomesticos">Electrodomesticos</option>
     <option value="Textil y basar">Textil y basar</option>
     <option value="Muebles">Muebles</option>
     <option value="Herramientas">Herramientas</option>
-    <option value="Recomendados">Recomendados</option>
+    <option value="Mas vendidos">Mas vendidos</option>
   </Form.Select>
 </FloatingLabel>
-        {errors.categoria&&<p className='errors mb-3'>{errors.categoria.message}</p>}
+        {errors.categoria&&<p className='errors mb-3'><IoIosAlert />{errors.categoria.message}</p>}
 
       <FloatingLabel className='mb-3' controlId="floatingTextarea2" label="Agregue informacion del producto">
         <Form.Control
-     
           as="textarea"
           placeholder="Leave a comment here"
           style={{ height: '100px' }}
@@ -170,19 +189,18 @@ export const Modaleditar=({productoSeleccionado,idadmin,setCreando,creando,produ
             },
             maxLength:{
               value:500,
-              message:"la informacion no puede tener  más de 500 caracteres"
+              message:"la informacion no puede tener  más de 20 caracteres"
             }})}/>
       </FloatingLabel>
-      {errors.informacion&&<p className="errors mb-3">{errors.informacion.message}</p>}
+      {errors.text&&<p className="errors mb-3"><IoIosAlert />{errors.text.message}</p>}
       <FloatingLabel className='mb-3' controlId="floatingTextarea2" label="Precio del Producto">
-        <Form.Control type='number' style={{ height: '50px',width:'150px' }} 
-      {...register("precio",{
-          required:"Agregue el Precio del Producto",
+        <Form.Control type='number' style={{ height: '50px',width:'150px' }} {...register("precio",{
+          required:"Agregue el Precio del producto",
         
           })}></Form.Control>
       </FloatingLabel>
-      {errors.precio&&<p className="errors mb-3">{errors.precio.message}</p>}
-          <button className='btn btn-primary mb-3' type='submit'> Agregar Producto</button>
+      {errors.precio&&<p className="errors mb-3"><IoIosAlert />{errors.precio.message}</p>}
+          <button className='btn btn-primary mb-3' type='submit'> Agregar producto</button>
       </Form>
             </div>
             <div className="modal-footer">

@@ -3,10 +3,11 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import { useForm } from 'react-hook-form';
 import {v4 as uuidv4, v4}from 'uuid'
+import Swal from 'sweetalert2';
 import { agregarProducto } from './helpers/queries';
-import Swal from "swiper"
-import { MdAddBusiness } from "react-icons/md";
 
+import { MdAddBusiness } from "react-icons/md";
+import { IoIosAlert } from "react-icons/io";
 export const Modaladministrador=({productosadmin,setProductosadmin})=>{
     const {register,handleSubmit,formState:{errors},reset,setValue}=useForm()
    
@@ -18,68 +19,50 @@ export const Modaladministrador=({productosadmin,setProductosadmin})=>{
 
   formData.append("name", data.name);
   formData.append("namedetallado", data.namedetallado);
-  formData.append("imageProduct", data.img[0]); // img es un array de archivos
+  formData.append("imageProduct", data.img[0]); 
   formData.append("categoria", data.categoria);
   formData.append("text", data.text);
   formData.append("precio", data.precio);
   formData.append("cantidad", "1");
+  agregarProductos(formData)
   
-    try {
-    const response = await fetch("https://miecomert-production.up.railway.app/api/producto", {
-      method: "POST",
-      body: formData,
-    });
+        }
+
+const agregarProductos = async (producto) => {
+  try {
+    const response = await agregarProducto(producto);
+    console.log("STATUS:", response.status);
+
+    let actualizar = null;
+
+    // Solo intentamos parsear si el Content-Type es JSON
+    const contentType = response.headers.get("Content-Type");
+    if (contentType && contentType.includes("application/json")) {
+      actualizar = await response.json();
+    }
 
     if (response.status === 201) {
-      const result = await response.json();
-      
-      location.reload();
+      console.log("Producto agregado:", actualizar);
+      Swal.fire({
+        position: "top-center",
+        icon: "success",
+        title: "Producto Agregado",
+        showConfirmButton: false,
+        timer: 500,
+      });
+
+      if (actualizar) {
+        location.reload();
+      }
     } else {
-       const errorData = await response.json();
-      console.error("Error en el servidor:", errorData);
+      const errorText = await response.text();
+      console.error("Error del servidor:", errorText);
+      alert("Error al agregar producto");
     }
   } catch (error) {
-    console.error("Error al agregar producto", error);
+    console.log("❌ Error al agregar producto (catch):", error.message);
   }
-         
-     
-        }
-
-        
-        
-  
-   
-
-
-   const agregarProductos=async(producto)=>{
-         try{
-           const response=await agregarProducto(producto) 
-           console.log(response)
-           console.log(producto)
-           if(response.status===201){
-            let actualizar=await response.json()
-            Swal.fire({
-              position: "top-center",
-              icon: "success",
-              title: "Producto Agregado",
-              showConfirmButton: false,
-              timer: 500
-            });
-           if(actualizar){
-               location.reload()
-           }
-         
-          
-           }else{
-           alert("error al agregar")
-    
-           }
-            
-         }catch{
-           console.log("error al agregar producto")
-         }
-         
-        }
+};
     return(
         <>
         <div>
@@ -93,14 +76,14 @@ export const Modaladministrador=({productosadmin,setProductosadmin})=>{
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title" id="miModalLabel">Agregue su Producto</h5>
+              <h5 className="modal-title" id="miModalLabel">Agregue su producto</h5>
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
             </div>
             <div className="modal-body">
             <Form  onSubmit={handleSubmit(agregar)} encType="multipart/form-data">
       <FloatingLabel
         controlId="floatingTextarea"
-        label="Nombre del Producto"
+        label="Nombre del producto"
         className="mb-3"
       >
         <Form.Control as="textarea" placeholder="Leave a comment here"
@@ -108,7 +91,7 @@ export const Modaladministrador=({productosadmin,setProductosadmin})=>{
         {...register("name",{
           required:"Agregue el Nombre del Producto",
           minLength:{
-            value:3,
+            value:5,
             message:"El nombre debe tener al menos 3 caracteres"
           },
           maxLength:{
@@ -118,7 +101,8 @@ export const Modaladministrador=({productosadmin,setProductosadmin})=>{
         })}/>
         
       </FloatingLabel>
-          {errors.name&&<p className="errors mb-3">{errors.name.message}</p>}
+          {errors.name&&<p className="errors mb-3"><IoIosAlert />
+{errors.name.message}</p>}
 
 
           <FloatingLabel
@@ -142,18 +126,17 @@ export const Modaladministrador=({productosadmin,setProductosadmin})=>{
         })}/>
 
         </FloatingLabel>    
-      {errors.namedetallado&&<p className="errors mb-3">{errors.namedetallado.message}</p>}
-        <FloatingLabel controlId="floatingTextarea" label="Agregue Imagen" className="mb-3">
-    <input
-      type="file"
-      name="imageProduct"
-      id="imageProduct"
-      {...register("img", {
-        required: "Agregue la imagen del Producto",
-      })}
-    />
+      {errors.namedetallado&&<p className="errors mb-3"><IoIosAlert />{errors.namedetallado.message}</p>}
+        <FloatingLabel controlId="floatingTextarea" className="mb-3">
+   
+    <Form.Group controlId="formFile" className="mb-3">
+        <Form.Label>Imagen del producto</Form.Label>
+        <Form.Control type="file" name='imageProduct' id='imageProduct' {...register("img",{
+          required:"Agregue la imagen del producto "
+        })} />
+      </Form.Group>
   </FloatingLabel>
-      {errors.img&&<p className="errors mb-3">{errors.img.message}</p>}
+      {errors.img&&<p className="errors mb-3"><IoIosAlert />{errors.img.message}</p>}
       <FloatingLabel
   controlId="floatingSelectGrid"
           label="Categoria de Producto"
@@ -163,7 +146,7 @@ export const Modaladministrador=({productosadmin,setProductosadmin})=>{
     aria-label="Seleccione la categoría del producto"
     {...register("categoria", { required: "Seleccione Categoria" })}
   >
-    <option value="">Seleccione la categoría del Producto</option>
+    <option value="">Seleccione la categoría del producto</option>
     <option value="Baños y cocinas">Baños y cocinas</option>
     <option value="Electrodomesticos">Electrodomesticos</option>
     <option value="Textil y basar">Textil y basar</option>
@@ -172,7 +155,7 @@ export const Modaladministrador=({productosadmin,setProductosadmin})=>{
     <option value="Mas vendidos">Mas vendidos</option>
   </Form.Select>
 </FloatingLabel>
-        {errors.categoria&&<p className='errors mb-3'>{errors.categoria.message}</p>}
+        {errors.categoria&&<p className='errors mb-3'><IoIosAlert />{errors.categoria.message}</p>}
 
       <FloatingLabel className='mb-3' controlId="floatingTextarea2" label="Agregue informacion del producto">
         <Form.Control
@@ -182,7 +165,7 @@ export const Modaladministrador=({productosadmin,setProductosadmin})=>{
           {...register("text",{
             required:"Agregue informacion del producto",
             minLength:{
-              value:3,
+              value:5,
               message:"la informacion debe tener mas de 5 caracteres"
             },
             maxLength:{
@@ -190,15 +173,15 @@ export const Modaladministrador=({productosadmin,setProductosadmin})=>{
               message:"la informacion no puede tener  más de 20 caracteres"
             }})}/>
       </FloatingLabel>
-      {errors.text&&<p className="errors mb-3">{errors.text.message}</p>}
+      {errors.text&&<p className="errors mb-3"><IoIosAlert />{errors.text.message}</p>}
       <FloatingLabel className='mb-3' controlId="floatingTextarea2" label="Precio del Producto">
         <Form.Control type='number' style={{ height: '50px',width:'150px' }} {...register("precio",{
-          required:"Agregue el Precio del Producto",
+          required:"Agregue el Precio del producto",
         
           })}></Form.Control>
       </FloatingLabel>
-      {errors.precio&&<p className="errors mb-3">{errors.precio.message}</p>}
-          <button className='btn btn-primary mb-3' type='submit'> Agregar Producto</button>
+      {errors.precio&&<p className="errors mb-3"><IoIosAlert />{errors.precio.message}</p>}
+          <button className='btn btn-primary mb-3' type='submit'> Agregar producto</button>
       </Form>
             </div>
             <div className="modal-footer">

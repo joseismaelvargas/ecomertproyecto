@@ -71,7 +71,7 @@ export const Modal=({isOpen,modalClose,carrito,setCarrito})=>{
     <>
       {carrito.map((prop) => (
         <div key={prop._id} className="containerCarrito">
-          <img className="imgcarrito" src={prop.img} alt={`Imagen de ${prop.nombre}`} />
+          <img className="imgcarrito" src={prop.imageProduct} alt={`Imagen de ${prop.nombre}`} />
           <p className="nunito-uniquifier-preciocarrito">
             ${(prop.precio * prop.cantidad).toFixed(2)}
           </p>
