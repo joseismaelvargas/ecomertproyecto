@@ -1,3 +1,6 @@
+/* *{
+ margin: 0;
+} */
 body{
   color: black; 
     background-image:linear-gradient(to right, #2B1845, #1C1233, #271743, #2F0536 );

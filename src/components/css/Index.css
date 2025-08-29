@@ -90,19 +90,21 @@ overflow: hidden;
   @media only screen and (max-width: 500px) {
     .containerCategorias{
       margin: 0px auto;
-
+        border: solid forestgreen ;
       height: 800px;
      
     }
     .container-padre{
-      margin: -60px;
-      /* border: solid red ; */
+      margin: -60px auto;
+      border: solid red ;
       /* height: 400px; */
+      /* width: 500px; */
+      
     }
    .container-categoria{
     display: flex;
     height: 1000px;
-    /* border: solid yellow; */
+   
     flex-direction: column;
    } 
    .divimg{

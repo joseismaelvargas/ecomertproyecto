@@ -12,10 +12,18 @@ import { IoIosAlert } from "react-icons/io";
 import Swal from 'sweetalert2';
 export const Modaleditar=({productoSeleccionado,idadmin,setCreando,creando,productos,setProductos})=>{
     const {register,handleSubmit,formState:{errors},reset,setValue}=useForm()
+       const [images,setImages]=useState([])
+       const [preview,setPreview]=useState([])
     let id=idadmin
 
 
 
+ const handleImageChange = (e) => {
+      const files = Array.from(e.target.files);
+      const urls=files.map(file=>URL.createObjectURL(file))
+      setImages(files);
+      setPreview(urls)
+    };
 
     useEffect(()=>{
       if(productoSeleccionado){
@@ -35,14 +43,16 @@ export const Modaleditar=({productoSeleccionado,idadmin,setCreando,creando,produ
 
   formData.append("name", data.name);
   formData.append("namedetallado", data.namedetallado);
-if (data.img && data.img.length > 0) {
-  formData.append("imageProduct", data.img[0]);
-}
+
+
   formData.append("categoria", data.categoria);
   formData.append("text", data.text);
   formData.append("precio", data.precio);
   formData.append("cantidad", "1");
-         
+  for(let i=0;i<images.length;i++){
+     formData.append("imagenesProduct",images[i])
+    }
+
         editarproductoadmin(formData,id)
    
     }
@@ -75,11 +85,11 @@ if (data.img && data.img.length > 0) {
      <div className="modal fade" id="miModaledit" tabIndex="-1" aria-labelledby="miModalLabel" aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content">
-            <div className="modal-header">
+            <div className="modal-header modal-header bg-black text-light">
               <h5 className="modal-title" id="miModalLabel">Editar Producto</h5>
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
             </div>
-            <div className="modal-body">
+            <div className="modal-body modal-header bg-black text-light">
          <Form  onSubmit={handleSubmit(editar)} encType="multipart/form-data">
       <FloatingLabel
         controlId="floatingTextarea"
@@ -130,7 +140,7 @@ if (data.img && data.img.length > 0) {
         <FloatingLabel controlId="floatingTextarea" className="mb-3">
    
    <Form.Group controlId="formFile" className="mb-3">
-  <Form.Label>Imagen del producto</Form.Label>
+
 
  
   {productoSeleccionado?.imageProduct && (
@@ -151,7 +161,9 @@ if (data.img && data.img.length > 0) {
     type="file"
     name="imageProduct"
     id="imageProduct"
-    {...register("img", {})}
+    multiple
+    onChange={handleImageChange}
+   
   />
 </Form.Group>
   </FloatingLabel>
@@ -202,12 +214,10 @@ if (data.img && data.img.length > 0) {
           })}></Form.Control>
       </FloatingLabel>
       {errors.precio&&<p className="errors mb-3"><IoIosAlert />{errors.precio.message}</p>}
-          <button className='btn btn-primary mb-3' type='submit'> Agregar producto</button>
+            <button className='btn-agregar ' type='submit'> Editar producto</button>
       </Form>
             </div>
-            <div className="modal-footer">
-         
-            </div>
+            
           </div>
         </div>
       </div>

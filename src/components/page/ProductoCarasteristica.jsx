@@ -8,8 +8,7 @@ import React, { useEffect, useState } from 'react';
 import { Productos } from '../Productos.jsx';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
-// import React,{useState} from 'react';
-// import { useState }from 'react';
+
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
@@ -19,7 +18,7 @@ const [productos,setProductos]=useState([])
 const [thumbsSwiper, setThumbsSwiper] = useState(null);
 const {pathname}=useLocation()
 const {id}=useParams();
-console.log(productos)
+
 
 
 const Api= async (id)=>{
@@ -85,16 +84,15 @@ const Api= async (id)=>{
         modules={[FreeMode, Navigation, Thumbs]}
         className="mb-4"
       >
-        <SwiperSlide>
-          <img src="https://imagenes.compragamer.com/productos/compragamer_Imganen_general_43818_Monitor_Lenovo_ThinkVision_S22i-30_21.5__FHD_IPS_75Hz_Anti_Glare_VESA_3c02c0d5-mini.jpg" alt="foto 1"  className='img'/>
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://imagenes.compragamer.com/productos/compragamer_Imganen_general_43817_Monitor_Lenovo_ThinkVision_S22i-30_21.5__FHD_IPS_75Hz_Anti_Glare_VESA_e7799117-mini.jpg" alt="foto 2" className='img'/>
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://imagenes.compragamer.com/productos/compragamer_Imganen_general_43817_Monitor_Lenovo_ThinkVision_S22i-30_21.5__FHD_IPS_75Hz_Anti_Glare_VESA_e7799117-mini.jpg" alt="foto 3" className='img' />
-        </SwiperSlide>
+       {productos.imagenesProduct?.map((item, i) => (
+  <SwiperSlide key={i}>
+    <img src={item} alt={`foto ${i + 1}`} className="img" />
+  </SwiperSlide>
+))}
+    
+      
       </Swiper>
+       
        
                     <Swiper
         onSwiper={setThumbsSwiper}
@@ -104,15 +102,14 @@ const Api= async (id)=>{
         watchSlidesProgress={true}
         modules={[FreeMode, Navigation, Thumbs]}
        className='my-thumbs'>
-        <SwiperSlide>
-          <img src="https://imagenes.compragamer.com/productos/compragamer_Imganen_general_43817_Monitor_Lenovo_ThinkVision_S22i-30_21.5__FHD_IPS_75Hz_Anti_Glare_VESA_e7799117-mini.jpg" alt="thumb 1" className='img-thumb' />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://imagenes.compragamer.com/productos/compragamer_Imganen_general_43816_Monitor_Lenovo_ThinkVision_S22i-30_21.5__FHD_IPS_75Hz_Anti_Glare_VESA_a2a37396-mini.jpg" alt="thumb 2"  className='img-thumb'/>
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://imagenes.compragamer.com/productos/compragamer_Imganen_general_43818_Monitor_Lenovo_ThinkVision_S22i-30_21.5__FHD_IPS_75Hz_Anti_Glare_VESA_3c02c0d5-mini.jpg" alt="thumb 3" className='img-thumb' />
-        </SwiperSlide>
+        {
+        productos.imagenesProduct?.map((item,i)=>
+ ( <SwiperSlide key={i}>
+          <img src={item} alt="thumb 1" className='img-thumb' />
+        </SwiperSlide>))
+       }
+      
+      
       </Swiper>
 
   

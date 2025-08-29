@@ -11,13 +11,18 @@ import { IoIosAlert } from "react-icons/io";
 export const Modaladministrador=({productosadmin,setProductosadmin})=>{
     const {register,handleSubmit,formState:{errors},reset,setValue}=useForm()
     const [images,setImages]=useState([])
-    const handleImageChange = (e) => {
-  // convertir FileList en array
-  const files = Array.from(e.target.files);
-  setImages(files);
-};
-    const agregar=async(data)=>{
-        // e.preventDefault()
+     const [preview,setPreview]=useState([])
+
+   const handleImageChange = (e) => {
+      const files = Array.from(e.target.files);
+       const urls=files.map(file=>URL.createObjectURL(file))
+      setPreview(urls)
+      setImages(files);
+    };
+
+
+   const agregar=async(data)=>{
+      
        
         const formData = new FormData();
 
@@ -42,7 +47,7 @@ const agregarProductos = async (producto) => {
 
     let actualizar = null;
 
-    // Solo intentamos parsear si el Content-Type es JSON
+
     const contentType = response.headers.get("Content-Type");
     if (contentType && contentType.includes("application/json")) {
       actualizar = await response.json();
@@ -140,7 +145,15 @@ const agregarProductos = async (producto) => {
         <Form.Control multiple type="file"  name='imageProduct' id='imageProduct' onChange={handleImageChange}  />
       </Form.Group>
   </FloatingLabel>
-
+    <div className='d-flex content-between'> 
+    {
+      preview.map((item,i)=>(
+        <div key={i}>
+      <img  src={item} className='img-preview' />
+      </div>
+      ))
+    }
+   </div>
       <FloatingLabel
   controlId="floatingSelectGrid"
           label="Categoria de Producto"

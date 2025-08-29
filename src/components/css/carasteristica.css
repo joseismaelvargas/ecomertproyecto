@@ -208,7 +208,7 @@ li{
   border: 2px solid transparent; 
   border-radius: 6px;
   cursor: pointer;
-  width: 150px;
+  min-width: 180px;
   transition: border 0.3s ease;
 }
 .name{
@@ -302,8 +302,9 @@ li{
     border-radius: 5px;
     box-shadow: 2px 0px 0px rgb(145, 143, 143);
     width: 600px;
-    padding: 0; /* 🔥 corregido */
-    margin: 0 auto; /* opcional, para centrar */
+    padding: 0; 
+
+    margin: 0 auto; 
   }
 
   .tarjetacarasteristica {
@@ -313,9 +314,11 @@ li{
   }
 
   .img {
-    width: 580px;
-    height: 650px;
-    margin: 0;
+    width: 540px;
+    margin: 0 auto;
+
+    height: 500px;
+    margin: 0 30px;
   }
 
   .descripcion {

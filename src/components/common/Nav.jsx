@@ -12,32 +12,6 @@ export const Nav=({modalOpen,modalOpen2,carrito,logeado,setlogeado})=>{
         <>
       <nav className="navbar navbar-expand-lg bg-black">
       <div className="container-fluid">
-       
-        {/* Logo */}
-        <Link to="/">
-          <img
-            src="/img/logoPrincipal.jpg"
-            alt="ecomert"
-            className="logoeocomert"
-          />
-        </Link> 
-      
-   {/* Iconos */}
-          <div className=" d-flex align-items-center gap-3 ">
-            <FaRegUserCircle className="icono" onClick={modalOpen2} />
-            <FaCartShopping className="icono" onClick={modalOpen} />
-            {carrito.length > 0 && (
-              <span className="nunito-uniquifier-span">{carrito.length}</span>
-            )}
-            {logeado.length > 0 && (
-              <Link to="/administrador">
-                <RiAdminFill className="icono" />
-              </Link>
-            )}
-          </div>
-          
-
-        {/* Botón hamburguesa */}
         <button
           className="navbar-toggler bg-black text-white"
           type="button"
@@ -49,11 +23,37 @@ export const Nav=({modalOpen,modalOpen2,carrito,logeado,setlogeado})=>{
         >
           <span className="navbar-toggler-icon"></span>
         </button>
+   
+        <Link to="/">
+          <img
+            src="/img/logoPrincipal.jpg"
+            alt="ecomert"
+            className="logoeocomert"
+          />
+        </Link> 
+      
 
-        {/* Contenido colapsable */}
-        <div className="containerlink collapse navbar-collapse " id="navbarSupportedContent">
-          {/* Buscador */}
-          <form className=" d-md-block">
+          <div className=" d-flex align-items-center gap-3 ">
+            <FaRegUserCircle className="icono" onClick={modalOpen2} />
+         
+            {carrito.length > 0 && (
+              <span className="nunito-uniquifier-span">{carrito.length}</span>
+            )}
+            {logeado.length > 0 && (
+              <Link to="/administrador">
+                <RiAdminFill className="icono" />
+              </Link>
+            )}  
+             <FaCartShopping className="icono" onClick={modalOpen} />
+          </div>
+          
+
+       
+
+    
+        <div className="containerlink collapse navbar-collapse" id="navbarSupportedContent">
+        
+          {/* <form className=" d-md-block">
             <div className="input-group">
               <input
                 type="search"
@@ -65,8 +65,8 @@ export const Nav=({modalOpen,modalOpen2,carrito,logeado,setlogeado})=>{
                 <FaSearch />
               </button>
             </div>
-          </form>
-          {/* Links y dropdowns */}
+          </form> */}
+ 
           <ul className="navbar-nav mb-6 mb-lg-0 d-flex align-items-start gap-2">
             <li className="nav-item">
               <Link className="nav-link fs-5 text-light" to="/registro">Registro</Link>
