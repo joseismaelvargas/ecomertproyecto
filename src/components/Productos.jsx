@@ -6,7 +6,7 @@ import { Usemodal } from './helpers/Usemodal';
 import { URL_productos } from './helpers/queries'
 import "./css/Productos.css"
 import { Link } from 'react-router-dom';
-
+import { FaCartPlus } from "react-icons/fa";
 export const Productos=({carrito,setCarrito,title,categoria})=>{
      
      const [producto,setProducto]=useState([])
@@ -60,8 +60,13 @@ export const Productos=({carrito,setCarrito,title,categoria})=>{
     return(
         <>
         
-        <section className="container-fluid">
-            <h2 className="nunito-uniquifier-title">{title}</h2>
+        <section className=" container-fluid ">
+          <br />
+          <div className='div-title'>
+              <h2 className="nunito-uniquifier-title text-white text-start" >{title}</h2>
+              <div className='line'></div>
+          </div>
+          
             <Swiper modules={[Autoplay,Navigation]} loop={true} navigation slidesPerView={4} 
               spaceBetween={1} 
               breakpoints={{
@@ -74,11 +79,11 @@ export const Productos=({carrito,setCarrito,title,categoria})=>{
                   spaceBetween: 10,
                 },
                 768: {
-                  slidesPerView: 3,
+                  slidesPerView: 4,
                   spaceBetween: 15,
                 },
                 1024: {
-                  slidesPerView: 4,
+                  slidesPerView: 5,
                   spaceBetween: 1,
                 },
               }}
@@ -95,13 +100,14 @@ export const Productos=({carrito,setCarrito,title,categoria})=>{
     </Link>
                                 <hr />
                             <div className="target-info">
+                              <p className='tipo'>{productos.categoria.toUpperCase()}</p>
                                <h3 className="nunito-uniquifier">{productos.name}</h3>
-                             <p className="nunito-uniquifier-text">{productos.namedetallado}</p>
+                             
                              <p className="nunito-uniquifier-precio">${productos.precio.toFixed(2)}</p>  
                           
                             </div>
                            
-                               <button className="nunito-uniquifier-boton" onClick={()=>Agregar(productos._id)} >Agregar al carrito</button>
+                               <button className="nunito-uniquifier-boton" onClick={()=>Agregar(productos._id)} > <FaCartPlus className='mx-2'></FaCartPlus>Agregar al carrito</button>
                                
                             </div>
                        </SwiperSlide>

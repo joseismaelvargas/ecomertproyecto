@@ -5,10 +5,9 @@ import"./css/Carrusel.css"
 export const Carrusel=()=>{
 return(
     <>
-    <section className='carrusel container-fluid'>
+    <section className='carruselindex container-fluid'>
     <Swiper modules={[Autoplay, Navigation,Pagination]}
-              slidesPerView={1} 
-              spaceBetween={0} 
+             
             
             autoplay={{
                 delay:5000
@@ -20,24 +19,26 @@ return(
             loop={true} 
               className='swiper'>
         <SwiperSlide >
-            <div className='imgswiper'>
-          
-            </div>
+           
+              <img src="/img/wp12657222.webp" className='img-carrusel' alt="" />
+              <div className='div-info'>
+    <h1 className='saira-condensed-thin '>Enciende tu pasión por la tecnología
+</h1>
+<h3 className='saira-condensed-thin-h2'>Descubre lo ultimo en tecnologia</h3>
+       <button className='button'>Explorar</button>
+              </div>
+        
         </SwiperSlide>
         <SwiperSlide >
-            <div className='imgswiper2'>
-
-            </div>
-     
+         <img src="https://www.malditohard.com.ar/wp-content/uploads/product/14/Slide_AMDAll_20.png"  className="img-carrusel"alt="" />
+       
         </SwiperSlide>
-        <SwiperSlide>
-            <div className='imgswiper3'>
-
-            </div>
+          <SwiperSlide >
+         <img src="https://www.malditohard.com.ar/wp-content/uploads/product/14/Slide_Armadas_20.png"  className="img-carrusel"alt="" />
+       
+    
         </SwiperSlide>
-        <SwiperSlide>
-            <div className='imgswiper4'></div>
-        </SwiperSlide>
+    
     </Swiper>
 </section>
     </>

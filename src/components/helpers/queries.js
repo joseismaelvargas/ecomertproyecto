@@ -47,7 +47,7 @@ export const editarProducto=async(productoeditado,id)=>{
 // Login 
 let usuarios={
     pasword:"0340",
-    email:"isma@gamil.com"
+    email:"isma@gmail.com"
 }
 export const logear=(usuario)=>{
  if( usuarios.email===usuario.email&&usuarios.pasword===usuario.pasword){

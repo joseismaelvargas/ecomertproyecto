@@ -25,28 +25,31 @@ export const Modalcuenta=({isOpen2,modalClose2})=>{
     return(
         <div className={`nunito-uniquifier-modal2 ${isOpen2?"is-open":""}`}>
          
-            <p className='nunito-uniquifier-cuenta'>Ingresa con tu usuario y contraseña </p>
+   
             <IoClose className='buttonmodal'onClick={modalClose2}></IoClose>
            
-          <div className='datos'>
-            <form onSubmit={handleSubmit(loGearse)}>
+          <div className='datos'>   
+                  <h2 className='nunito-uniquifier-cuenta text-center'>Iniciar sesión </h2>
+                  <p className="text-center text-white fs-7">Para comenzar ingresá tu email</p>
+            <form onSubmit={handleSubmit(loGearse)} className="form">
 
-             <MdAlternateEmail className="email"></MdAlternateEmail>
-              <input className='inputdatos' type="text" placeholder='Ingrese cuenta' {...register("email",
+               {/* <label htmlFor="">Para comenzar ingresá tu email</label> */}
+              <input className='inputdatos' type="text" placeholder='Email' {...register("email",
               {
-                required:"Agregue email.."
+                required:"Campo requerido"
               }
               )} />
                {errors.email&&<p className="errors">{errors.email.message}</p>}
               <br />
-              <br />
-             <CiRainbow className="email"></CiRainbow>
-              <input type="number" className="inputdatos" placeholder="Ingrese Contraseña" {...register("pasword",{
+           
+             
+              <input type="number" className="inputdatos" placeholder=" Contraseña" {...register("pasword",{
                 required:"Agregue Contraseña"
               })} />
               {errors.pasword&&<p className="errors">{errors.pasword.message}</p>}
                <br />
-              <button className="btniniciarsecion"type="submit" >Ingresar </button>                        
+              <button className="btniniciarsecion"type="submit" >Ingresar </button>  
+              <button className="btn-cuenta">Crear Cuenta</button>                                              
            </form>   
           </div>
      

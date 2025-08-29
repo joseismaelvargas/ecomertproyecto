@@ -4,9 +4,19 @@ import { Modalcuenta } from '../Modalcuenta.jsx';
 import { Modal } from '../Modal.jsx';
 import { useLocation } from 'react-router-dom';
 import { URL_productos } from '../helpers/queries.js';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Productos } from '../Productos.jsx';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { FreeMode, Navigation, Thumbs } from "swiper/modules";
+// import React,{useState} from 'react';
+// import { useState }from 'react';
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
 export const ProductoCarasteristica=({isOpen,isOpen2,modalClose,modalClose2,carrito,setCarrito})=>{
 const [productos,setProductos]=useState([])
+const [thumbsSwiper, setThumbsSwiper] = useState(null);
 const {pathname}=useLocation()
 const {id}=useParams();
 console.log(id)
@@ -59,44 +69,81 @@ const Api= async (id)=>{
         <>
 <Modal isOpen={isOpen}  modalClose={modalClose} carrito={carrito} setCarrito={setCarrito} ></Modal>
          <Modalcuenta isOpen2={isOpen2} modalClose2={modalClose2} ></Modalcuenta>
-        <section className='container-fluid nunito-uniquifier-section '> 
+        <section className=' nunito-uniquifier-section '> 
             
           <div className=' producto-div '>
             <div className='container-producto'>
-                 <img className='img' src={productos.imageProduct
-} alt="imgproducto" />
-          
-                <p className="d-inline-flex gap-1">
-        
-          <button className="button1" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="true" aria-controls="collapseExample">
-   Descripcion
-          </button>
-          <button className="button2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
-   Detalles de producto
-          </button>
-              </p>
-         <div class="collapse show" id="collapseExample">
-           <div class="card-body">
-              <h2 className='titledescripcion'>{productos.name}</h2>
-              <p className='parrafosdescripcion'>{productos.text}</p>
-            </div>
-                 </div>
-                 <div class="collapse" id="collapseExample2">
-           <div class="card-body">
-              <p>Tipo de Producto	Cortadoras de Césped</p>
-            </div>
-                 </div>
+                 {/* <img className='img' src={productos.imageProduct
+} alt="imgproducto" /> */}
+ <Swiper
+        style={{
+          "--swiper-navigation-color": "#000",
+          "--swiper-pagination-color": "#000",
+        }}
+        spaceBetween={10}
+        navigation={true}
+        thumbs={{ swiper: thumbsSwiper }}
+        modules={[FreeMode, Navigation, Thumbs]}
+        className="mb-4"
+      >
+        <SwiperSlide>
+          <img src="https://imagenes.compragamer.com/productos/compragamer_Imganen_general_43818_Monitor_Lenovo_ThinkVision_S22i-30_21.5__FHD_IPS_75Hz_Anti_Glare_VESA_3c02c0d5-mini.jpg" alt="foto 1"  className='img'/>
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://imagenes.compragamer.com/productos/compragamer_Imganen_general_43817_Monitor_Lenovo_ThinkVision_S22i-30_21.5__FHD_IPS_75Hz_Anti_Glare_VESA_e7799117-mini.jpg" alt="foto 2" className='img'/>
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://imagenes.compragamer.com/productos/compragamer_Imganen_general_43817_Monitor_Lenovo_ThinkVision_S22i-30_21.5__FHD_IPS_75Hz_Anti_Glare_VESA_e7799117-mini.jpg" alt="foto 3" className='img' />
+        </SwiperSlide>
+      </Swiper>
+       
+                    <Swiper
+        onSwiper={setThumbsSwiper}
+        spaceBetween={10}
+        slidesPerView={3}
+        freeMode={true}
+        watchSlidesProgress={true}
+        modules={[FreeMode, Navigation, Thumbs]}
+       className='my-thumbs'>
+        <SwiperSlide>
+          <img src="https://imagenes.compragamer.com/productos/compragamer_Imganen_general_43817_Monitor_Lenovo_ThinkVision_S22i-30_21.5__FHD_IPS_75Hz_Anti_Glare_VESA_e7799117-mini.jpg" alt="thumb 1" className='img-thumb' />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://imagenes.compragamer.com/productos/compragamer_Imganen_general_43816_Monitor_Lenovo_ThinkVision_S22i-30_21.5__FHD_IPS_75Hz_Anti_Glare_VESA_a2a37396-mini.jpg" alt="thumb 2"  className='img-thumb'/>
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://imagenes.compragamer.com/productos/compragamer_Imganen_general_43818_Monitor_Lenovo_ThinkVision_S22i-30_21.5__FHD_IPS_75Hz_Anti_Glare_VESA_3c02c0d5-mini.jpg" alt="thumb 3" className='img-thumb' />
+        </SwiperSlide>
+      </Swiper>
+
+  
+
             </div>
             
             
             
 
-             <div className='descripcion'>
-              <p className='title'>{productos.name}</p>
+             <div className='descripcion'>  
+               <p className='name'>{productos.name}</p>
               <p className='title-especifico'>{productos.namedetallado}</p>
-              <p className='oferta'><span className='porcentajedescuento'>%20</span> <del><span>${Descuento()}.00 </span></del> </p>
-              <p className='precio'>${productos.precio}.00</p>
-              <div className='cantidad'></div>
+              <p className='oferta text-center'><span className='porcentajedescuento'>%20</span> <del><span>${Descuento()}.00 </span></del> </p>
+              <p className='precio text-center'>${productos.precio}.00</p>
+               <div className='d-flex mx-auto my-3'>
+                <input type="number"  className='number' placeholder='1'/>
+                <button className='añadirCarrito' onClick={()=>agregarCarrito(productos.id)}>Agregar al Carrito</button>
+               </div>
+              
+              <button className='comprar' >Comprar Ahora</button>
+            
+             <ul className='my-2'>
+              <li>Diseño eficiente de enfriador de triple ventilador con enfriamiento semipasivo</li>
+              <li>Reloj base extremadamente alto de la GPU: TBA MHz</li>
+              <li>Conectores de alimentación PCIe adicionales: 1x 12VHPWR de 16 pines</li>
+              <li>Enorme reloj de impulso de la GPU: TBA MHz</li>
+              <li>Compatible con DLSS 4 y NVIDIA Reflex 2</li>
+              <li>Potencia de cálculo pura: 21.760 núcleos CUDA (shaders)</li>
+            </ul>
+             
                 <div style={{margin: "50px"}}>
                       
                         <h5 className='medios'>Medios de pago</h5>
@@ -109,14 +156,15 @@ const Api= async (id)=>{
                       
                        
                       </div>
-              <button className='buttoncarasteristicas' >Comprar Ahora</button>
-              <button className='buttoncarasteristicas' onClick={()=>agregarCarrito(productos.id)}>Agregar al Carrito</button>
-
+   
+            
              </div>
                     </div>
               
        
           </section>
+          <Productos carrito={carrito} setCarrito={setCarrito} title={"Mas vistos"} categoria={"Muebles"} ></Productos>
+     
         </>
     )
 }

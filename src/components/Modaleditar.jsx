@@ -95,8 +95,8 @@ if (data.img && data.img.length > 0) {
             message:"El nombre debe tener al menos 3 caracteres"
           },
           maxLength:{
-            value:30,
-            message:"El nombre no puede tener más de 30 caracteres"
+            value:100,
+            message:"El nombre no puede tener más de 100 caracteres"
           }
         })}/>
         
@@ -166,12 +166,14 @@ if (data.img && data.img.length > 0) {
     {...register("categoria", { required: "Seleccione Categoria" })}
   >
     <option value="">Seleccione la categoría del producto</option>
-    <option value="Baños y cocinas">Baños y cocinas</option>
-    <option value="Electrodomesticos">Electrodomesticos</option>
-    <option value="Textil y basar">Textil y basar</option>
-    <option value="Muebles">Muebles</option>
-    <option value="Herramientas">Herramientas</option>
-    <option value="Mas vendidos">Mas vendidos</option>
+    <option value="Componentes de PC">Componentes de PC</option>
+    <option value="Placas de Video">Placas de Video</option>
+    <option value="Monitores">Monitores</option>
+    <option value="Escritorios y Mesas de PC">Escritorios y Mesas de PC</option>
+    <option value="Perifericos de PC">Perifericos de PC</option>
+    <option value="Computadoras y Notebooks">Computadoras y Notebooks</option>
+     <option value="Procesadores">Procesadores</option>
+        <option value="Almacenamiento">Almacenamiento</option>
   </Form.Select>
 </FloatingLabel>
         {errors.categoria&&<p className='errors mb-3'><IoIosAlert />{errors.categoria.message}</p>}

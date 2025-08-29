@@ -1,14 +1,14 @@
 import { Nav } from "./components/common/Nav.jsx"
 import { Index } from "./components/common/Index.jsx"
 import { Usemodal } from "./components/helpers/Usemodal.jsx"
-import React,{useState} from "react";
+import {useState} from "react";
 import {BrowserRouter, Route,Routes}from"react-router-dom"
 import { ProductoCarasteristica } from "./components/page/ProductoCarasteristica.jsx";
 import { Footer } from "./components/common/footer.jsx";
 import { Rutaadmin } from "./components/router/Rutaadmin.jsx";
 import ProtejerRuta from "./components/router/ProtejerRuta.jsx";
 import ScrollToTop from "./components/helpers/ScrollToTop.jsx";
-
+import "./App.css"
 function App() {
   const [carrito, setCarrito] = useState([]);
   const usuario=JSON.parse(sessionStorage.getItem("ecomert"))||[]

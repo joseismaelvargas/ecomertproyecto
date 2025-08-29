@@ -1,4 +1,124 @@
-.imgswiper{
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Changa:wght@200..800&family=Dosis:wght@200..800&family=Epilogue:ital,wght@0,100..900;1,100..900&family=Inconsolata:wght@200..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lora:ital,wght@0,400..700;1,400..700&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Patua+One&family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:wght@100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&family=Signika:wght@300..700&family=Yanone+Kaffeesatz:wght@200..700&family=Yusei+Magic&display=swap');
+.carrusel{
+  margin: 100px;
+}
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 70px; /* Tamaño del ícono */
+  font-weight: bold;
+  color: #621369;
+  display: none;
+}
+
+.swiper-button-prev::after {
+  content: "⮜"; /* Cambia la flecha izquierda */
+}
+
+.swiper-button-next::after {
+  content: "⮞"; /* Cambia la flecha derecha */
+}
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 70px; /* Tamaño del ícono */
+  font-weight: bold;
+  color: #621369;
+}
+.swiper-pagination-bullet {
+  width: 50px;
+  height: 12px;
+  background-color: #4c075a; /* Color normal */
+  opacity: 1;
+  margin: 0 6px; /* Espaciado entre bolitas */
+  border-radius: 50%; /* Forma redonda */
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #621369; /* Color cuando está activa */
+  border: 2px solid #56087a; /* Opcional para destacar más */
+  transform: scale(1.2); /* Efecto de agrandar */
+}
+.swiper-button-prev::after {
+  content: "⮜"; /* Cambia la flecha izquierda */
+}
+
+.swiper-button-next::after {
+  content: "⮞"; /* Cambia la flecha derecha */
+}
+.carruselindex{
+  margin: 70px auto;
+  width: 100%;
+
+}
+ .img-carrusel{
+  width: 100%;
+  height: 250px;
+ }
+ .swiper{
+  /* margin: 50px; */
+  width: 100%;
+ }
+ .div-info {
+  position: absolute;
+  width: 500px;
+  height: 300px;
+  font-weight: 200;
+  top: 50%;
+  border-radius: 10px;
+  margin:100px auto;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white; /* Para que se vea el texto */
+  z-index: 2;
+  
+  padding: 20px;
+  background-color: rgba(19, 18, 18, 0.137); /* Fondo semitransparente */
+}
+ .saira-condensed-thin-h2{
+  font-family: "Saira Condensed", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  text-align: center;
+  font-style: normal;
+}
+  .saira-condensed-thin {
+  font-family: "Saira Condensed", sans-serif;
+  font-weight: 500;
+  font-size: 28px;
+  text-align: center;
+  font-style: normal;
+}
+.button{
+  background-color: #681d79;
+  padding: 10px 10px;
+  margin: 0px 180px;
+  font-size: 20px;
+  border-radius: 10px;
+  font-weight: 400;
+  border: none;
+  color: white;
+}
+.button:hover{
+  background-color: #991fb4;
+}
+@media(min-width:558px){
+  .saira-condensed-thin {
+  font-family: "Saira Condensed", sans-serif;
+  font-weight: 500;
+  font-size: 60px;
+  text-align: center;
+  font-style: normal;
+}
+  .saira-condensed-thin-h2 {
+  font-family: "Saira Condensed", sans-serif;
+  font-weight: 300;
+  font-size: 30px;
+  margin: 10px 40px;
+  font-style: normal;
+}
+
+  .imgswiper{
     background-image: url("https://arcencohogareasy.vtexassets.com/assets/vtex.file-manager-graphql/images/c2ec5616-782e-48f5-b695-0d92b8bfd582___7583623cd2d4d3e0b8e696aa0bed42a3.jpg");
     background-size: cover;
     background-position: center; 
@@ -7,61 +127,74 @@
     background-attachment: fixed; 
      overflow: hidden
 }
-.carrusel{
-    margin: 100px -3px;
-}
-.swiper-button-prev,
-.swiper-button-next {
-  
-  color: #000000; 
-  border-radius: 100%; 
- 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 10px;
+.swiper-pagination-bullet {
+  width: 50px;
+  height: 12px;
+  background-color: #4c075a; /* Color normal */
+  opacity: 1;
+  margin: 0 6px; /* Espaciado entre bolitas */
+  border-radius: 50%; /* Forma redonda */
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
 }
 
-.imgswiper2{
-    
-        background-image: url("https://arcencohogareasy.vtexassets.com/assets/vtex.file-manager-graphql/images/7161f8b0-41be-42db-a047-7a34f32c92c9___c37befe7de5570398dc2e26419f2e466.jpg");
-        background-size: cover;
-        background-position: center; 
-        background-repeat: no-repeat; 
-        height: 370px;
-        background-attachment: fixed; 
-         overflow: hidden
-   
+.swiper-pagination-bullet-active {
+  background-color: #621369; /* Color cuando está activa */
+  border: 2px solid #56087a; /* Opcional para destacar más */
+  transform: scale(1.2); /* Efecto de agrandar */
 }
-.imgswiper3{
-    
-    background-image: url("https://arcencohogareasy.vtexassets.com/assets/vtex.file-manager-graphql/images/0ef3d5a8-b897-4f30-9439-5b110b83c9a7___b2d5224bad6c181f9c3f2d163fa287ab.jpg");
-    background-size: cover;
-    background-position: center; 
-    background-repeat: no-repeat; 
-    height: 370px;
-    background-attachment: fixed; 
-     overflow: hidden
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 70px;
+  font-weight: bold;
+  color: #621369;
+}
 
+.swiper-button-prev::after {
+  content: "⮜"; 
 }
-.imgswiper4{
-  background-image: url("https://arcencohogareasy.vtexassets.com/assets/vtex.file-manager-graphql/images/9c284972-8d1d-46d0-a07d-f788e499a21b___b2ef0050fb55563a0dd3e0e015eedbf9.gif");
+
+.swiper-button-next::after {
+  content: "⮞"; }
+.carruselindex{
+  margin: 50px auto;
+}
+
+.img-carrusel {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background-image: url("/ruta/a/tu-imagen.jpg");
   background-size: cover;
-  background-position: center; 
-  background-repeat: no-repeat; 
-  height: 370px;
-  background-attachment: fixed; 
-   overflow: hidden
+  background-position: center;
+}
+.button{
+  background-color: #681d79;
+  padding: 10px 10px;
+  margin: 0px 300px;
+  font-size: 20px;
+  border-radius: 10px;
+  font-weight: 400;
+  border: none;
+  color: white;
+}
+.button:hover{
+  background-color: #991fb4;
+}
+.div-info {
+  position: absolute;
+  width: 700px;
+  height: 300px;
+  font-weight: 200;
+  top: 50%;
+  border-radius: 10px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white; /* Para que se vea el texto */
+  z-index: 2;
+  
+  padding: 20px;
+  background-color: rgba(19, 18, 18, 0.432); /* Fondo semitransparente */
 }
 
- @media only screen and (max-width: 500px) {
-   
-   .imgswiper,
-   .imgswiper2,
-   .imgswiper3,
-   .imgswiper4{
-    height: 250px;
-    width: 100vh;
-    
-   }
 }

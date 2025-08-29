@@ -1,4 +1,7 @@
-
+*{
+  margin: 0;
+  padding: 0;
+}
 .nunito-uniquifier-footer {
     font-family: "Nunito", serif;
     font-optical-sizing: auto;
@@ -6,12 +9,14 @@
     width: 100%;
     color: white;
     height: auto;  
-    background-color: rgb(24, 34, 48);
+    background-color: rgb(0, 0, 0);
     font-size: 15px;
     font-style: normal;
     margin: 0;
     }
-
+.logofooter{
+    width: 200px;
+}
 
     .footerContainer{
       margin: 30px 0px;
@@ -41,7 +46,8 @@
         font-size: 2px;
     }
     footer p{
-      color: rgb(255, 253, 253);
+        font-weight: 200;
+      color: rgb(143, 138, 138);
     } @media only screen and (max-width: 700px) {
       .secctioninicial{
           flex-wrap: wrap;
@@ -74,6 +80,9 @@
      }
   }
   @media only screen and (max-width: 450px) {
+    .logofooter{
+    width: 120px;
+}
     footer {
       padding: 10px; /* Reduce el padding para pantallas muy pequeñas */
   }
@@ -83,11 +92,16 @@
   }
 
   .flex1, .flex2, .flex3, .flex4, .flex5 {
-      width: 50%; /* Asegura que las secciones ocupen todo el ancho */
+      width: 46%; /* Asegura que las secciones ocupen todo el ancho */
       margin: 10px 0; /* Reduce los márgenes entre las secciones */
       text-align: center; /* Centra el contenido dentro de cada sección */
   }
-
+  .footer h4{
+    font-size: 10px;
+  }
+  .icon{
+    font-size: 20px;
+  }
   .bi {
       font-size: 18px; /* Ajusta el tamaño de los iconos en pantallas pequeñas */
   }

@@ -93,14 +93,14 @@ export const Administrador=( )=>{
     return(
         <>
        
-        <section className=" Administrador" > 
-     
-       <h2 className="text-center">Administrador de la Pagina</h2>
+        <section className=" administrador" > 
+        <br />
+       <h2 className="saira-condensed-thin ">Administrador de la Pagina</h2>
        <Modaladministrador productosadmin={productosadmin} setProductosadmin={setProductosadmin} ></Modaladministrador>
        <Modaleditar productoSeleccionado={productoSeleccionado} idadmin={id}  setCreando={setCreando} creando={creando}></Modaleditar>
 
-          <div className="nunito-uniquifier-table responsive mt-5">
-            <table className="table table-hover table-bordered border-light text-center">
+          <div className="nunito-uniquifier-table responsive mt-5 mx-5 bg-secondary-subtle ">
+            <table className="table table-dark table-hover table-border border-light text-center">
                 <thead>
                     <tr>
                         <th>id</th>
@@ -119,8 +119,8 @@ export const Administrador=( )=>{
                         <td>{item.categoria}</td>
                         <td>${item.precio.toFixed(2)}</td>
                         <td>
-                           <button className="btn btn-info button-opciones"  data-bs-toggle="modal" data-bs-target="#miModaledit" onClick={()=>editarProducto(item._id)}><FaRegEdit></FaRegEdit></button> 
-                           <button className="btn btn-danger button-opciones" onClick={()=>borrar(item._id)}><MdDelete></MdDelete></button>
+                           <button className="btn btn-info button-opciones "  data-bs-toggle="modal" data-bs-target="#miModaledit" onClick={()=>editarProducto(item._id)}><FaRegEdit></FaRegEdit></button> 
+                           <button className="btn btn-danger button-opciones mx-1" onClick={()=>borrar(item._id)}><MdDelete></MdDelete></button>
                            <Link to={`/carasteristica/${item._id}`} className=" btn btn-warning button-opciones">
                             <FaRegEye></FaRegEye></Link>
                         </td>

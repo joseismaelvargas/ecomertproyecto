@@ -13,12 +13,12 @@ export const Footer=()=>{
         <div className="flex1" >
          
          
-         <img src="https://ecomert.md/wp-content/uploads/2024/02/share.jpg" alt="img"  width={"170px"}></img>
+         <img      src="/img/logoPrincipal.jpg"alt="img"  className="logofooter" ></img>
 
        
          
         <div style={{margin: "0px"}}>
-        <h5>Seguinos en</h5>
+      
           <FaInstagram className="icon"></FaInstagram>
           <FaFacebook className="icon"></FaFacebook>
           <FaTiktok className="icon"></FaTiktok>
