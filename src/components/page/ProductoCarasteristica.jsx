@@ -19,7 +19,7 @@ const [productos,setProductos]=useState([])
 const [thumbsSwiper, setThumbsSwiper] = useState(null);
 const {pathname}=useLocation()
 const {id}=useParams();
-console.log(id)
+console.log(productos)
 
 
 const Api= async (id)=>{
@@ -73,8 +73,7 @@ const Api= async (id)=>{
             
           <div className=' producto-div '>
             <div className='container-producto'>
-                 {/* <img className='img' src={productos.imageProduct
-} alt="imgproducto" /> */}
+           
  <Swiper
         style={{
           "--swiper-navigation-color": "#000",
