@@ -17,7 +17,7 @@ return(
                 clickable: true,
               }}
             loop={true} 
-              className='swiper'>
+              className='swiper-carrusel'>
         <SwiperSlide >
            
               <img src="/img/wp12657222.webp" className='img-carrusel' alt="" />

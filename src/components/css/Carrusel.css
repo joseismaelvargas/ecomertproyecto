@@ -47,17 +47,18 @@
   content: "⮞"; /* Cambia la flecha derecha */
 }
 .carruselindex{
-  margin: 70px auto;
+  margin: 81px -12px;
   width: 100%;
 
 }
  .img-carrusel{
   width: 100%;
-  height: 250px;
+  height: 320px;
  }
- .swiper{
-  /* margin: 50px; */
-  width: 100%;
+ .swiper-carrusel{
+  margin:  10px -60px;
+  width: 100vw;
+  /* border: solid red; */
  }
  .div-info {
   position: absolute;
@@ -103,6 +104,12 @@
   background-color: #991fb4;
 }
 @media(min-width:558px){
+  .carruselindex{
+  margin: 81px 0px 0px 50px;
+  border: solid red;
+  width: 100%;
+
+}
   .saira-condensed-thin {
   font-family: "Saira Condensed", sans-serif;
   font-weight: 500;
@@ -137,7 +144,11 @@
   transition: all 0.3s ease;
   border: 2px solid transparent;
 }
-
+.swiper-carrusel{
+  margin:  10px auto;
+  width: 100vw;
+  border: solid rgb(25, 0, 255);
+ }
 .swiper-pagination-bullet-active {
   background-color: #621369; /* Color cuando está activa */
   border: 2px solid #56087a; /* Opcional para destacar más */
