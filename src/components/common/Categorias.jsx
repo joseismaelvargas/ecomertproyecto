@@ -31,12 +31,12 @@ const Categorias = () => {
                 320: {
                   slidesPerView: 2,
                   spaceBetween: 2,
-                     direction: 'horizontal', // 📱 móviles en horizontal
+                     direction: 'horizontal', 
                 },
                 480: {
                   slidesPerView: 2,
                   spaceBetween: 17,
-                     direction: 'horizontal', // 📱 móviles en horizontal
+                     direction: 'horizontal', 
                 },
                 768: {
                   slidesPerView: 3,
