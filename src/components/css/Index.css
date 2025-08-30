@@ -92,13 +92,17 @@ overflow: hidden;
       margin: 0px auto;
         border: solid forestgreen ;
       height: 800px;
+      flex-wrap: wrap;
+      width: 400px;
      
     }
     .container-padre{
       margin: -60px auto;
+      display: flex;
+      flex-wrap: wrap;
       border: solid red ;
-      /* height: 400px; */
       /* width: 500px; */
+   
       
     }
    .container-categoria{
@@ -108,16 +112,17 @@ overflow: hidden;
     flex-direction: column;
    } 
    .divimg{
-      margin:0px 10px;
+      margin:0px 5px;
       width: 400px;
     }.divimg>img{
       margin: 0px auto;
-     width: 370px;
+     width: 360px;
      height: 320px;
     } 
     .caja{
+      /* width: 600px; */
       margin: 0px auto;
-      /* border: solid blue; */
+      border: solid blue;
     }
    
     /*

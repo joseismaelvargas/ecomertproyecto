@@ -23,7 +23,6 @@ const Categorias = () => {
              
   autoplay={{ delay: 5000 }}
   navigation
-  // pagination={{ clickable: true }}
   loop={true}
   slidesPerView={6}
   spaceBetween={1}
@@ -32,10 +31,12 @@ const Categorias = () => {
                 320: {
                   slidesPerView: 2,
                   spaceBetween: 2,
+                     direction: 'horizontal', // 📱 móviles en horizontal
                 },
                 480: {
                   slidesPerView: 2,
-                  spaceBetween: 10,
+                  spaceBetween: 17,
+                     direction: 'horizontal', // 📱 móviles en horizontal
                 },
                 768: {
                   slidesPerView: 3,
