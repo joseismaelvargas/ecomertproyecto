@@ -9,7 +9,7 @@ body{
     body{
        margin: 0;
   padding: 0;
-  overflow-x: hidden; /* 🔒 bloquea scroll hacia la derecha */
+  overflow-x: hidden; 
 }
     
   }

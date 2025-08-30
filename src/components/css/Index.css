@@ -90,7 +90,7 @@ overflow: hidden;
   @media only screen and (max-width: 500px) {
     .containerCategorias{
       margin: 0px auto;
-        border: solid forestgreen ;
+   
       height: 800px;
       flex-wrap: wrap;
       /* width: 400px; */
@@ -100,7 +100,7 @@ overflow: hidden;
       margin: -60px auto;
       display: flex;
       flex-wrap: wrap;
-      border: solid red ;
+
    
       
     }
@@ -121,7 +121,7 @@ overflow: hidden;
     .caja{
       
       margin: 0px auto;
-      border: solid blue;
+    
     }
     .img-caja{
       width: 170px;
