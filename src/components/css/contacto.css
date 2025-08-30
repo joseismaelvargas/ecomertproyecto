@@ -79,16 +79,20 @@ z-index: -10;
     /* margin: 10px; */
     border: solid green;
    }
+   .archivo-black-regular-button2{
+    font-size: 12px;
+   }
     .container-contacto{
      border: solid red;
      width: 430px;
      margin:-460px 0px 0px -19px; 
     }
     .archivo-black-regular{
-        font-size: 44px;
+        font-size: 40px;
     }
     .archivo-black-regular-parrafo{
         margin: 30px auto; 
+        font-size: 14px;
     }
     .archivo-black-regular-subtitle{
         font-size: 25px;

@@ -6,7 +6,7 @@ body{
     background-image:linear-gradient(to right, #2B1845, #1C1233, #271743, #2F0536 );
 }
   @media only screen and (max-width: 500px) {
-    body{
+    html,body{
        margin: 0;
   padding: 0;
   overflow-x: hidden; 
