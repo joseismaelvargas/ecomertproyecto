@@ -8,7 +8,7 @@
 }
 .logoeocomert{
   width:85px;
-  margin: 0px 135px 0px 0px;
+  margin: 0px 100px 0px 0px;
 }
 .navbar{
  position: fixed;
@@ -37,7 +37,7 @@ color: white;
 }
 .containerlink{
   background-color: #000000;
-  width: 100%;
+  width: 100vw;
 
 }
 .nunito-uniquifier-link{
@@ -58,13 +58,13 @@ color: white;
   display: flex;
   
    justify-content: center;
-  /* width: 400px; */
+  width: 100vw;
 
 }
 .navbar{
   position: fixed;
   top: 0;
-  /* height: 110px; */
+ 
 width: 100%;
 z-index: 1000;
 }

@@ -58,7 +58,7 @@
  .swiper-carrusel{
   margin:  10px -60px;
   width: 100vw;
-  /* border: solid red; */
+
  }
  .div-info {
   position: absolute;
@@ -70,11 +70,11 @@
   margin:100px auto;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white; /* Para que se vea el texto */
+  color: white; 
   z-index: 2;
   
   padding: 20px;
-  background-color: rgba(19, 18, 18, 0.137); /* Fondo semitransparente */
+  background-color: rgba(19, 18, 18, 0.137); 
 }
  .saira-condensed-thin-h2{
   font-family: "Saira Condensed", sans-serif;
@@ -105,8 +105,8 @@
 }
 @media(min-width:558px){
   .carruselindex{
-  margin: 81px 0px 0px 50px;
-  border: solid red;
+  margin: 81px -224px;
+
   width: 100%;
 
 }
@@ -145,10 +145,11 @@
   border: 2px solid transparent;
 }
 .swiper-carrusel{
-  margin:  10px auto;
-  width: 100vw;
-  border: solid rgb(25, 0, 255);
+  margin: 25px;
+  width: 100%;
+ 
  }
+ 
 .swiper-pagination-bullet-active {
   background-color: #621369; /* Color cuando está activa */
   border: 2px solid #56087a; /* Opcional para destacar más */
