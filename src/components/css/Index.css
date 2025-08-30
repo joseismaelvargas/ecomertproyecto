@@ -120,11 +120,12 @@ overflow: hidden;
     } 
     .caja{
       
-      margin: 0px auto;
+      margin: 1px auto;
     
     }
     .img-caja{
       width: 165px;
+      margin: 0px 1px;
     }
    
     /*

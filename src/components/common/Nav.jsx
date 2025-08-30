@@ -53,7 +53,7 @@ export const Nav=({modalOpen,modalOpen2,carrito,logeado,setlogeado})=>{
     
         <div className="containerlink collapse navbar-collapse" id="navbarSupportedContent">
         
-          {/* <form className=" d-md-block">
+          <form className=" d-md-block">
             <div className="input-group">
               <input
                 type="search"
@@ -65,7 +65,7 @@ export const Nav=({modalOpen,modalOpen2,carrito,logeado,setlogeado})=>{
                 <FaSearch />
               </button>
             </div>
-          </form> */}
+          </form>
  
           <ul className="navbar-nav mb-6 mb-lg-0 d-flex align-items-start gap-2">
             <li className="nav-item">

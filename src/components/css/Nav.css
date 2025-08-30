@@ -7,15 +7,15 @@
   padding: 0;
 }
 .logoeocomert{
-  width:90px;
-  margin: 0px 92px 0px 0px;
+  width:85px;
+  margin: 0px 148px 0px 0px;
 }
 .navbar{
  position: fixed;
   top: 0;
   height: 80px;
 width: 100vw;
-border: solid rebeccapurple;
+/* border: solid rebeccapurple; */
 z-index: 1000;
 }
 .icono{

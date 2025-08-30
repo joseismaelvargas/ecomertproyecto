@@ -75,15 +75,12 @@ z-index: -10;
     flex-direction: column;
 }
 @media(max-width:558px){
-   .section-contacto{
-    /* margin: 10px; */
-    border: solid green;
-   }
+   
    .archivo-black-regular-button2{
     font-size: 12px;
    }
     .container-contacto{
-     border: solid red;
+  
      width: 430px;
      margin:-460px 0px 0px -19px; 
     }
@@ -92,7 +89,7 @@ z-index: -10;
     }
     .archivo-black-regular-parrafo{
         margin: 30px auto; 
-        font-size: 14px;
+        font-size: 12px;
     }
     .archivo-black-regular-subtitle{
         font-size: 25px;
