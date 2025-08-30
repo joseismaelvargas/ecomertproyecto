@@ -31,12 +31,12 @@ const Categorias = () => {
                 320: {
                   slidesPerView: 2,
                   spaceBetween: 2,
-                     direction: 'horizontal', 
+                   
                 },
                 480: {
                   slidesPerView: 2,
                   spaceBetween: 17,
-                     direction: 'horizontal', 
+                 
                 },
                 768: {
                   slidesPerView: 3,
@@ -53,7 +53,8 @@ const Categorias = () => {
        
          
          
-            <SwiperSlide><div className='caja'> 
+            <SwiperSlide>
+              <div className='caja'> 
              <div> 
               <img src="/img/Ram.jpeg" alt="" className='img-caja' />
                <div className='div-info-caja'>
